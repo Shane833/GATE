@@ -1,0 +1,35 @@
+MCQ: Total no. of Eigen Values of matrix A(n x n) is always equal to __________.
+A) Rank(A)
+B) det(A)
+C) Order(A)
+D) Trace(A)
+Answer: C
+
+MCQ: Sum of all Eigen Values of matrix A(n x n) is always equal to __________.
+A) Rank(A)
+B) det(A)
+C) Order(A)
+D) Trace(A)
+Answer: D
+
+MCQ: Product of all Eigen Values of matrix A(n x n) is always equal to __________.
+A) Rank(A)
+B) det(A)
+C) Order(A)
+D) Trace(A)
+Answer: B
+
+MSQ: Zero is an Eigen Value of a Matrix A(n x n) if __________.
+A) det(A) = 0
+B) Square Matrix
+C) Rank(A) = order
+D) Singular
+Answer: A,D
+
+MCQ: Number of non-zero Eigen Values of matrix A(n x n) are always ___________.
+A) equal to order(A)
+B) equal to Rank(A)
+C) less than or equal to Rank(A)
+D) less than or equal to det(A)
+Answer: C
+

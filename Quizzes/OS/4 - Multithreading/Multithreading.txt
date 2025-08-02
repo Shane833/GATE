@@ -1,0 +1,154 @@
+MCQ: A thread is _______ of a process.
+A) child
+B) component
+C) parent
+D) job
+Answer: B
+Explanation: Threads are created within the process without the requirement of OS and hence are components of the process.
+
+MCQ: Threads are _________ processes which can run ___________.
+A) lightweight, independently
+B) child, serially
+C) new, concurrently
+D) CPU Intensive, simultaneously
+Answer: A
+
+MSQ: Threads can improve performance through ________.
+A) Concurrency
+B) Simultaneous Execution
+C) Parallelism
+D) Brute Force
+Answer: B,C
+
+MCQ: Threads are lightweight units hence context switches are ______ as compared to full processes.
+A) Slow
+B) exactly the same
+C) Fast
+D) None
+Answer: C
+
+MSQ: Identify the things shared among threads of a process: 1. OS Resources 2. Heap 3. Register Set 4. Program Counter 5. Open Files and Signals 6. Stack 7. Data Section 8. Thread ID 9. Code Section
+A) 1, 2, 5
+B) 3, 4, 
+C) 6, 8
+D) 7, 9
+Answer: A,D
+
+MSQ: Identify the things unique to threads of a process: 1. OS Resources 2. Heap 3. Register Set 4. Program Counter 5. Open Files and Signals 6. Stack 7. Data Section 8. Thread ID 9. Code Section
+A) 1, 2, 5
+B) 3, 4, 
+C) 6, 8
+D) 7, 9
+Answer: B,C
+
+MCQ: Threads perform the best on _____________ OS.
+A) UniProgramming
+B) MultiProgramming
+C) MultiTasking
+D) MultiProcessing
+Answer: D
+Explanation: Since threads can utilize multiple processors and execute tasks quickly.
+
+MSQ: Types of threads that exist are:
+A) Kernel Level Threads
+B) Network Level Threads
+C) User Level Threads
+D) I/O Level Threads
+Answer: A,C
+
+MCQ: If a user level thread is blocked then OS will _____________.
+A) Do Nothing
+B) Blocks the thread only
+C) Blocks the entire process
+D) Ignore the thread
+Answer: C
+Explanation: Since OS is not responsible for creating user-level threads therefore it has no idea that they exist and if even one of the threads is blocked (for I/O), then OS will only see that process is requesting I/O and hence will block the entire process.
+
+MCQ: If a kernel level thread is blocked then OS will _____________.
+A) Do Nothing
+B) Blocks the thread only
+C) Blocks the entire process
+D) Ignore the thread
+Answer: B
+Explanation: Since OS is responsible for creating kernel-level threads therefore it can block an individual thread.
+
+MCQ: Who is responsible for creating threads?
+A) OS
+B) Kernel
+C) Process
+D) child processes
+Answer: C
+Explanation: A process is always responsible for creating its threads while they can be managed by OS threading libraries or the process itself, but eventually process is responsible for creating threads initially.
+
+MSQ: User Level threads are ___________.
+A) Specific to OS
+B) Generic
+C) Faster to create and manage
+D) Slower to create and manage
+Answer: B,C
+
+MSQ: Kernel Level threads are ___________.
+A) Specific to OS
+B) Generic
+C) Faster to create and manage
+D) Slower to create and manage
+Answer: A,D
+
+MCQ: What is System Call?
+A) Way to request service from kernel
+B) Way to overwrite service from kernel
+C) Way to take control of kernel
+D) Way to exploit kernel
+Answer: A
+
+MCQ: malloc() is a ______ call.
+A) sys
+B) process
+C) library function
+D) memory
+Answer: C
+Explanation: malloc() is a library function which manages the heap memory within the memory segment of the process along with free(), it may internally use other syscall to increase the size of its memory space but it is itself a library function.
+
+MCQ: fork() is a ______ call.
+A) sys
+B) process
+C) library function
+D) memory
+Answer: A
+Explanation: fork() is a syscall() which is used by the process to create child processes which is a WHOLE new process.
+
+MCQ: What does fork() return?
+A) NULL
+B) Nothing
+C) Integral Value
+D) Floating Point Value
+Answer: C
+Explanation: fork() returns integral values: +ve : for successful creating of child process and return the Pid (which is the +ve value) of the child process created. 0 : This is the returned to the child process at same point in the src code where the fork() was called. -ve : This means that fork() was unsuccessful in creating child process.
+
+MCQ: For n consecutive fork() calls how many total processes are present?
+A) 2^n
+B) n
+C) (2^n) - 1
+D) 2^n-1
+Answer: A
+Explanation: 1 original/parent + (2^n) - 1 child processes = 2^n
+
+MCQ: For n consecutive fork() calls how many child processes are created?
+A) 2^n
+B) n
+C) (2^n) - 1
+D) 2^n-1
+Answer: C
+Explanation: 1 original/parent + (2^n) - 1 child processes = 2^n
+
+MCQ: Where does the process execution continue in child process?
+A) From the start
+B) Can't say
+C) Right after the fork() call in parent src
+D) Right before the fork() call in parent src
+Answer: C
+
+
+
+
+

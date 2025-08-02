@@ -1,0 +1,63 @@
+MCQ: Homogeneous System is always ________ and never _________.
+A) Nullable, Fixed
+B) Inconsistent, Consistent
+C) Non-Zero, Zero
+D) Consistent, Inconsistent
+Answer: D
+
+MCQ: In the System [AX = B], By Definition, for a consistent system the column vectors are always always ____________ on B.
+A) Linearly Independent
+B) Linearly Dependent
+C) Consistent
+D) Inconsistent
+Answer: B
+
+MCQ: Zero vector is always treated as ___________.
+A) Linearly Independent
+B) Consistent
+C) Linearly Dependent
+D) Inconsistent
+Answer: C
+
+MSQ: Under-determined Homogeneous System always has ____________.
+A) No Solution
+B) Unique Solution
+C) Non-Zero Solution
+D) Infinite Solution
+Answer: C,D
+
+MSQ: Necessary Conditions for a Trivial Solution in Homogeneous System is/are ______________.
+A) Rank(A) < No. of Variables
+B) det(A) = 0
+C) det(A) != 0
+D) Rank(A) = No. of Variables
+Answer: C,D
+
+NAT: Zero solution always exists for a Homogeneous System? (True/False).
+Answer: True
+
+MSQ: What is Nullity?
+A) Dimensions of Null Space
+B) Dimensions of Solution Space
+C) Counting of Linearly Independent solutions in Null Space
+D) Number of rows in A - Rank(A)
+Answer: A,B,C,D
+
+MCQ: Eigen Vector is never ________ while Eigen Values can be _________.
+A) Zero, Zero 
+B) Non-Zero, Zero
+B) Zero, Non-Zero
+D) Non-Zero, Non-Zero
+Answer: A
+
+MSQ: Identify the type of Linear Equation : x + 2y + 3z = 0, y - 4z = 0.
+A) Homogeneous
+B) Inconsistent
+C) Consistent
+D) Under-Determined
+Answer: A,C,D
+
+
+
+
+

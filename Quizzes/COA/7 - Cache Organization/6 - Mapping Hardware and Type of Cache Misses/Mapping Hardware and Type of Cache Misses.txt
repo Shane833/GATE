@@ -1,0 +1,244 @@
+MCQ: Number of MUX required to extract Tag in Direct Mapped Cache?
+A) No. of cache blocks
+B) No. of bits in Tag
+C) No. of bits in Tag * No. of cache blocks
+D) No Mux Required
+Answer: B
+Explanantion: Eventually they have to extract tag!
+
+MCQ: Size of MUX needed to extract tag in Direct Mapped Cache?
+A) No. cache blocks : 1
+B) No. of bits in Tag : 1
+C) No. main memory blocks : 1
+D) No MUX Required
+Answer: A
+Explanantion: These MUX select bits of tag from Cache blocks
+
+MCQ: What is provided as the select line for MUX in Direct Mapped Cache?
+A) Tag
+B) Cache Block no.
+C) Byte Offset
+D) Cache Block Size
+Answer: B
+Explanantion: The Tag in main memory address will be compared against one of the Tags in a Cache Block
+
+NAT: No. of Comparators required in Direct Mapped Cache ___.
+Answer: 1
+Explanantion: Only Two Tags are getting compared hence we only requied one comparator.
+
+MCQ: Size of Comparator needed to compare Tags in Direct Mapped Cache ______ - bits Comparator.
+A) No. of cache blocks
+B) No. of bits in Tag
+C) No. of bits in Tag * No. of cache blocks
+D) No. of mem blocks
+Answer: B
+Explanantion: Eventually they have to compare tags, so it needs to be exactly as many bits as is the tag.
+
+MCQ: Number of MUX required to extract Tag in k-way Set Associative Cache?
+A) No. of cache blocks * k / Associativity
+B) No. of bits in Tag * k / Associativity
+C) No. of bits in Tag * No. of cache blocks
+D) No. of sets in cache * k / Associativity
+Answer: B
+Explanantion: Since there exits k Tags in each set.
+
+MCQ: Size of MUX needed to extract tag in k-way Set Associative Cache?
+A) No. cache blocks : 1
+B) No. of bits in Tag : 1
+C) No. main memory blocks : 1
+D) No. of sets in cache: 1
+Answer: D
+Explanantion: Since we are extracting Tags from each set now.
+
+MCQ: What is provided as the select line for MUX in k-way Set Associative Cache?
+A) Tag
+B) Set no.
+C) Byte Offset
+D) Cache Block Size
+Answer: B
+Explanantion: The Tag in main memory address will be compared against one of the Tags in a Set.
+
+NAT: No. of Comparators required in k-way set associative Cache ___.
+Answer: k
+Explanantion: Since there exists k tags per set now and we need to compare all of them.
+
+MCQ: Size of Comparator needed to compare Tags in k-way Set Associative Cache ______ - bits Comparator.
+A) No. of cache blocks
+B) No. of bits in Tag
+C) No. of bits in Tag * No. of cache blocks
+D) No. of mem blocks
+Answer: B
+Explanantion: Eventually they have to compare tags, so it needs to be exactly as many bits as is the tag.
+
+MCQ: Which logic gate is a Hardware requirement in Comparision process in Direct Mapped Cache?
+A) OR Gate
+B) AND Gate
+C) XOR Gate
+D) None
+Answer: D
+Explanantion: Since there is only one tag per block we don't need any extra logic for coming up with the result.
+
+MCQ: Which logic gate is a Hardware requirement in Comparision process in k-way set associative Cache?
+A) OR Gate
+B) AND Gate
+C) XOR Gate
+D) None
+Answer: A
+Explanantion: Since there are k tags per set and each comparator give a 0 or 1, so we OR the result of k comparators and if its 1 then tag has matched.
+
+MCQ: Hit Latency in Direct Mapped Cache:
+A) MUX Delay + Comparator Delay + OR Gate Delay
+B) No. of Tag Bits * Comparator Delay
+C) MUX Delay + Comparator Delay
+D) Comparator Delay + OR Gate Delay
+Answer: C
+Explanantion: There is only MUX and Comparator Hardware and we would sum up their delays
+
+MCQ: Hit Latency in k-way set Associative Cache:
+A) MUX Delay + Comparator Delay + OR Gate Delay
+B) No. of Tag Bits * Comparator Delay
+C) MUX Delay + Comparator Delay
+D) Comparator Delay + OR Gate Delay
+Answer: A
+Explanantion: Since MUX, Comparator and OR Gate Hardware is at work so we would sum up their delays.
+
+MSQ: No. of Inputs to OR gate in k-way set Associative cache:
+A) no. of bits in Tag
+B) k / Associativity
+C) no. of comparators
+D) no. of sets in cache
+Answer: B,C
+Explanantion: Since the OR gate will take the output of comparators as its input and there are k comparator in total.
+
+MCQ: No. of comparators in Fully Associative Cache:
+A) No. of bits in Tag
+B) No. of bits for each Cache Block
+C) No. of Cache Blocks
+D) 1 comparator
+Answer: C
+Explanantion: Since all blocks are part of one big set and there are as many tags as there are blocks in cache and we need to compare against all of them.
+
+MCQ: Number of MUX required to extract Tag in Fully Associative Cache?
+A) No. of cache blocks
+B) No. of bits in Tag
+C) No. of bits in Tag * No. of cache blocks
+D) No Mux Required
+Answer: D
+Explanantion: All Tags are part of one big set and are extracted all together, hence no mux required.
+
+MCQ: Size of Comparator needed to compare Tags in Fully Associative Cache ______ - bits Comparator.
+A) No. of cache blocks
+B) No. of bits in Tag
+C) No. of bits in Tag * No. of cache blocks
+D) No. of mem blocks
+Answer: B
+Explanantion: Eventually they have to compare tags, so it needs to be exactly as many bits as is the tag.
+
+NAT: No. of OR Gate(s) required in comparison Hardware in Fully Associative Cache:
+Answer: 1
+Explanantion: There is always one OR Gate in Fully / Set Associative Mapped Cache.
+
+MSQ: No. of inputs to the OR Gate in Fully Associative Cache:
+A) No. of bits in Tag
+B) No. of Cache Blocks
+C) No. of bit in Byte Offset
+D) No. of Tags
+Answer: B,D
+Explanantion: The inputs to the OR Gate is basically coming from the no. of comparators and there are as many comparators are there are tags and there are as many tags as there are blocks in the cache.
+
+MCQ: Which of the following is a type of Cache Miss?
+A) Hot Miss
+B) Storage Miss
+C) Cold Miss
+D) Null Miss
+Answer: C
+
+MCQ: Which of the following is a type of Cache Miss?
+A) Capactiy Miss
+B) Storage Miss
+C) Hot Miss
+D) Null Miss
+Answer: A
+
+MCQ: Which of the following is a type of Cache Miss?
+A) Size Miss
+B) Storage Miss
+C) Hot Miss
+D) Conflict Miss
+Answer: D
+
+MSQ: When does Cold Miss Occur?
+A) When the Cache blocks is accessed first time
+B) When the Cache blocks is accessed again / repeat access
+C) When the Cache is Empty
+D) When the Cache blocks already contains another memory block
+Answer: A,C
+Explanantion: Cold Miss occurs when the memory block is accessed for the first time and if cache is every empty, then it means it loading data for the first time meaning it is still a cold miss
+
+MSQ: When does Capactiy Miss Occur?
+A) When the Cache blocks is accessed first time
+B) When the Cache blocks is accessed again / repeat access
+C) When the Cache is Empty
+D) When the Cache if Full
+Answer: B,D
+Explanantion: Capacity occurs if its not a cold miss and the cache is full at the time.
+
+MSQ: When does Conflict Miss Occur?
+A) When the Cache block already contains another memory block
+B) When the Cache blocks is accessed again / repeat access
+C) When the Cache is Empty
+D) When the Cache set is Full
+Answer: A,B,D
+Explanantion: Conflict miss occurs, if its not a cold miss or a capacity miss and given set/block is occupied/full.
+
+MCQ: How to reduce Cold Misses?
+A) Increase Cache Size
+B) Increase Associtivity
+C) Increase Block Size
+D) Can't do anything
+Answer: C
+Explanantion: When we increase the block size more data/addresses can be packed into mem blocks leading to less no. of unique blocks in memory hence less cold misses
+
+MCQ: How to reduce Capacity Misses?
+A) Increase Cache Size
+B) Increase Associtivity
+C) Increase Block Size
+D) Can't do anything
+Answer: A
+Explanantion: If the cache can hold more blocks there will be more places where each mem block gets mapped and can hold more blocks at a time hence reducing the no. of Capacity Misses.
+
+MCQ: How to reduce Conflict Misses?
+A) Increase Cache Size
+B) Increase Associtivity
+C) Increase Block Size
+D) Can't do anything
+Answer: B
+Explanantion: By Increasing Associativity each set can hold more no. of blocks hence reducing the conflict.
+
+NAT: Does conflict misses occur in Fully Associative Cache? (Yes/No)
+Answer: No
+Explanantion: Since each block gets mapped to one big set no conflict miss can occur, if the misses occur they will be either of the type cold or capacity.
+
+MCQ: In which order should you check for misses in Cache?
+A) Capacity->Conflict->Cold/Compulsory
+B) Cold/Compulsory->Capacity->Conflict
+C) Conflict->Cold/Compulsory->Capacity
+D) Cold/Compulsory->Conflict->Capacity
+Answer: B
+Explanantion: It is just a handy way remember it.
+
+MCQ: How to quickly find the no. of cold misses in questions?
+A) Count the total no. of Mem Blocks in Sequence
+B) Count the total no. of Unique Memory Blocks in the sequence
+C) Calculate the individual Occurence of Each memory block
+D) Can't be found
+Answer: B
+Explanation: Just a shortcut learn it.
+
+MCQ: All the MUX integrated in the cache during extraction of Tag works in _______.
+A) Series
+B) Parallel
+C) Different Speed
+D) Same Speed
+Answer: B
+Explanation: All the MUXs work in parallel and hence the amount of time taken by them is equivalent to latency of one of the MUX

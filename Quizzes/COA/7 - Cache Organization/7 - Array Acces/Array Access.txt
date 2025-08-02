@@ -1,0 +1,61 @@
+MCQ: Total no. of misses on the first iteration of Array = ________.
+A) Total no. of blocks in cache
+B) Total no. of memory blocks
+C) Total no. of memory blocks occupied by Array
+D) Total no. of cache blocks occupied by Array
+Answer: C
+Explanation: Since each memory block containing the array elements will be accessed for the first time hence misses will be equal to the no. of memory blocks occupied by the array.
+
+MCQ: How to find the no. of extra blocks in Array Access?
+A) No. of array occupied mem blocks
+B) No. of blocks occupied by array in cache
+C) Total no. of cache blocks
+D) No. of mem blocks occupied by array - no. of total cache blocks
+Answer: D
+Explanation: Well they are extra bcz they can't fit in the cache at a time.
+
+MCQ: Total no. of misses on the repeated iteration of Array = _________.
+A) Total no. of blocks in cache + 2
+B) Total no. of extra blocks for array * 2
+C) Total no. of extra blocks
+D) Total no. of cache blocks occupied by Array
+Answer: B
+Explanation: First the extra blocks will be replaced by the starting blocks and then again these starting blocks will be replaced by extra blocks i.e. 2 time these extra blocks are getting replaced and rest of the array will be present in the cache.
+
+MCQ: Where the does extra blocks gets mapped to ?
+A) At the starting block of the cache
+B) At the ending block of the cache
+C) At the block where first array mem blocks get mapped
+D) From the Middle of the cache blocks
+Answer: C
+Explanation: Since the extra blocks will replace the starting blocks of the array, hence they will also map to the cache blocks where the starting blocks were mapped.
+
+MCQ: No. of Memory blocks occupied by Array = ________.
+A) ceil(Memory Size occupied by Array / Block Size)
+B) Array Size / Block Size
+C) Memory Size / Array Size
+D) ceil(Block Size / Memory Size occupied by Array)
+Answer: A
+
+MCQ: Given Cache Size = 32B, Block Size = 2B, Array A[20] each element is 2B then find the total no. of misses on 3 iterations of Array?
+A) 32
+B) 24
+C) 36
+D) 40
+Answer: C
+Explanation: No. of Cache Blocks = 32/2 => 16 Blocks
+Total memory for Array = 20 * 2 => 40B
+Total Memory blocks occupied by array = 40/2 => 20 Blocks
+Extra Blocks = 20 - 16 => 4 Blocks
+First Iteration Misses = No. of Blocks occupied by Array => 20
+Repeat Iteration Misses = 2 * No. of Extra Blocks = 2 * 4 => 8 
+Total Misses for 3 Iterations : 20 + 8 + 8 => 36
+
+MCQ: What are the total no. of Memory Access done when iterating through an Array once?
+A) No. of mem blocks occupied by Array
+B) No. of Cache Blocks
+C) No. of extra blocks 
+D) No. of elements in Array
+Answer: D
+Explanation: CPU will generate as many addresses as there are element in the array hene that will be the no. of memory accesses.
+

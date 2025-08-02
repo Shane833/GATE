@@ -1,0 +1,236 @@
+from PyQt5 import QtWidgets, QtCore, QtGui
+import sys, random, os
+
+class Question:
+    def __init__(self, text, options, answer, explanation, qtype="MCQ"):
+        self.text = text
+        self.options = options
+        self.answer = answer
+        self.explanation = explanation
+        self.qtype = qtype
+
+class QuizApp(QtWidgets.QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Quiz Generator - MCQ/MSQ/NAT")
+        self.resize(800, 600)
+
+        self.questions = []
+        self.current_index = 0
+        self.user_answers = {}
+        self.total_questions = 0
+        self.review_mode = False
+
+        self.layout = QtWidgets.QVBoxLayout(self)
+
+        self.file_name_label = QtWidgets.QLabel("No quiz loaded")
+        self.file_name_label.setAlignment(QtCore.Qt.AlignCenter)
+        font = QtGui.QFont()
+        font.setBold(True)
+        self.file_name_label.setFont(font)
+        self.layout.addWidget(self.file_name_label)
+
+        self.load_btn = QtWidgets.QPushButton("Load Quiz")
+        self.load_btn.clicked.connect(self.load_quiz)
+        self.layout.addWidget(self.load_btn)
+
+        self.question_label = QtWidgets.QLabel("")
+        self.question_label.setWordWrap(True)
+        self.layout.addWidget(self.question_label)
+
+        self.options_group = QtWidgets.QButtonGroup(self)
+        self.options_layout = QtWidgets.QVBoxLayout()
+        self.option_widgets = []
+        self.layout.addLayout(self.options_layout)
+
+        self.nat_input = QtWidgets.QLineEdit()
+        self.layout.addWidget(self.nat_input)
+        self.nat_input.hide()
+
+        nav_layout = QtWidgets.QHBoxLayout()
+        self.prev_btn = QtWidgets.QPushButton("Previous")
+        self.prev_btn.clicked.connect(self.prev_question)
+        nav_layout.addWidget(self.prev_btn)
+
+        self.next_btn = QtWidgets.QPushButton("Next")
+        self.next_btn.clicked.connect(self.next_question)
+        nav_layout.addWidget(self.next_btn)
+        self.layout.addLayout(nav_layout)
+
+        self.submit_btn = QtWidgets.QPushButton("Submit Quiz")
+        self.submit_btn.clicked.connect(self.submit_quiz)
+        self.layout.addWidget(self.submit_btn)
+
+        self.explanation_area = QtWidgets.QTextEdit()
+        self.explanation_area.setReadOnly(True)
+        self.explanation_area.hide()
+        self.layout.addWidget(self.explanation_area)
+
+        self.toggle_quiz_controls(False)
+
+    def toggle_quiz_controls(self, enable):
+        self.question_label.setVisible(enable)
+        self.nat_input.setVisible(enable)
+        self.prev_btn.setEnabled(enable)
+        self.next_btn.setEnabled(enable)
+        self.submit_btn.setEnabled(enable)
+        for w in self.option_widgets:
+            w.setVisible(enable)
+
+    def load_quiz(self):
+        self.questions.clear()
+        self.user_answers.clear()
+        self.explanation_area.clear()
+        self.explanation_area.hide()
+        self.review_mode = False
+        self.toggle_quiz_controls(False)
+        self.question_label.clear()
+
+        file_path, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select Quiz File", "", "Text Files (*.txt)")
+        if not file_path:
+            return
+        try:
+            self.file_name_label.setText(os.path.basename(file_path))
+            with open(file_path, "r") as file:
+                blocks = file.read().strip().split("\n\n")
+            for block in blocks:
+                lines = block.strip().split("\n")
+                qtype = lines[0].split(":")[0].strip()
+                q_text = lines[0].split(":",1)[1].strip()
+                if qtype in ["MCQ", "MSQ"]:
+                    options = [line[3:].strip() for line in lines[1:5]]
+                    answer = lines[5].split(":")[-1].strip()
+                    explanation_index = 6
+                elif qtype == "NAT":
+                    options = []
+                    answer = lines[1].split(":")[-1].strip()
+                    explanation_index = 2
+                else:
+                    continue
+                explanation = "\n".join(lines[explanation_index:]).replace("Explanation:", "").strip() if len(lines) > explanation_index else "No explanation provided."
+                self.questions.append(Question(q_text, options, answer, explanation, qtype))
+
+            total_available = len(self.questions)
+            num, ok = QtWidgets.QInputDialog.getInt(self, "Number of Questions", f"Enter number of questions (max {total_available}):", min=1, max=total_available)
+            if ok:
+                random.seed()
+                random.shuffle(self.questions)
+                self.total_questions = num
+                self.current_index = 0
+                self.toggle_quiz_controls(True)
+                self.show_question()
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "Error", f"Failed to load quiz: {e}")
+
+    def show_question(self):
+        if not self.questions:
+            return
+        q = self.questions[self.current_index]
+        self.question_label.setText(f"Q{self.current_index+1}: {q.text}")
+
+        for w in self.option_widgets:
+            self.options_layout.removeWidget(w)
+            w.deleteLater()
+        self.option_widgets.clear()
+        self.options_group = QtWidgets.QButtonGroup(self)
+
+        self.nat_input.hide()
+        if q.qtype == "MCQ":
+            for i, opt in enumerate(q.options):
+                rb = QtWidgets.QRadioButton(f"{chr(65+i)}) {opt}")
+                self.options_group.addButton(rb, i)
+                self.options_layout.addWidget(rb)
+                self.option_widgets.append(rb)
+                if self.review_mode:
+                    if chr(65+i) == q.answer:
+                        rb.setStyleSheet("color: green;")
+                    elif self.user_answers.get(self.current_index) == chr(65+i):
+                        rb.setStyleSheet("color: red;")
+            sel = self.user_answers.get(self.current_index)
+            if sel:
+                for btn in self.option_widgets:
+                    btn.setChecked(btn.text().startswith(sel))
+
+        elif q.qtype == "MSQ":
+            for i, opt in enumerate(q.options):
+                cb = QtWidgets.QCheckBox(f"{chr(65+i)}) {opt}")
+                self.options_layout.addWidget(cb)
+                self.option_widgets.append(cb)
+                if self.review_mode:
+                    if chr(65+i) in q.answer.split(","):
+                        cb.setStyleSheet("color: green;")
+                    elif chr(65+i) in self.user_answers.get(self.current_index, []):
+                        cb.setStyleSheet("color: red;")
+            sel = self.user_answers.get(self.current_index, [])
+            for cb in self.option_widgets:
+                cb.setChecked(cb.text()[0] in sel)
+
+        elif q.qtype == "NAT":
+            self.nat_input.show()
+            self.nat_input.setText(self.user_answers.get(self.current_index, ""))
+            if self.review_mode:
+                if self.nat_input.text() == q.answer:
+                    self.nat_input.setStyleSheet("color: green;")
+                else:
+                    self.nat_input.setStyleSheet("color: red;")
+
+    def save_answer(self):
+        if self.review_mode:
+            return
+        q = self.questions[self.current_index]
+        if q.qtype == "MCQ":
+            checked_id = self.options_group.checkedId()
+            if checked_id >= 0:
+                self.user_answers[self.current_index] = chr(65 + checked_id)
+        elif q.qtype == "MSQ":
+            selected = [cb.text()[0] for cb in self.option_widgets if cb.isChecked()]
+            self.user_answers[self.current_index] = selected
+        elif q.qtype == "NAT":
+            self.user_answers[self.current_index] = self.nat_input.text().strip()
+
+    def next_question(self):
+        self.save_answer()
+        if self.current_index < self.total_questions - 1:
+            self.current_index += 1
+            self.show_question()
+
+    def prev_question(self):
+        self.save_answer()
+        if self.current_index > 0:
+            self.current_index -= 1
+            self.show_question()
+
+    def submit_quiz(self):
+        self.save_answer()
+        wrong_answers = []
+        score = 0
+        for i, q in enumerate(self.questions[:self.total_questions]):
+            ans = self.user_answers.get(i, "")
+            if q.qtype == "MCQ" and ans == q.answer:
+                score += 1
+            elif q.qtype == "MSQ" and set(ans) == set(q.answer.split(",")):
+                score += 1
+            elif q.qtype == "NAT" and ans == q.answer:
+                score += 1
+            else:
+                wrong_answers.append((q, ans))
+
+        self.review_mode = True
+        self.show_question()
+
+        self.explanation_area.clear()
+        self.explanation_area.show()
+        self.explanation_area.append(f"<b>Your score: {score}/{self.total_questions}</b><br><br>")
+        if wrong_answers:
+            self.explanation_area.append("<b>Questions you got wrong:</b><br>")
+            for q, ans in wrong_answers:
+                self.explanation_area.append(f"<span style='color:red;'>Q: {q.text}</span><br>")
+                self.explanation_area.append(f"<span style='color:orange;'>Your Answer: {ans}</span><br>")
+                self.explanation_area.append(f"<span style='color:green;'>Correct Answer: {q.answer}</span><br>")
+                self.explanation_area.append(f"<span style='color:blue;'>Explanation: {q.explanation}</span><br><br>")
+
+if __name__ == "__main__":
+    app = QtWidgets.QApplication(sys.argv)
+    window = QuizApp()
+    window.show()
+    sys.exit(app.exec_())
