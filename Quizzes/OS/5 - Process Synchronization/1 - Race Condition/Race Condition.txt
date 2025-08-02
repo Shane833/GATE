@@ -1,0 +1,24 @@
+MSQ: Process Synchronization must fulfill what conditions?
+A) Mutual Exclusion
+B) Critical Section
+C) Progress
+D) Bounded Waiting
+Answer: A,C,D
+Explanation: These are facts bro learn them.
+
+MSQ: What are some problems that may occur without synchronization?
+A) Deadlock
+B) Inconsistency
+C) Preemption
+D) Loss of Data
+Answerw: A,B,D
+Explanation: If processes are not synchronized then they will end up in deadlock have inconsistent communication which would result in inconsistent data or even loss of data.
+
+MCQ: Race condition is an undesirable condition in which the final result of the concurrent processes depends on ?
+A) Deadlock
+B) Process Synchronization
+C) Sequence of Concurrent Processes
+D) Atomicity
+Answer: C
+Explanation: 
+

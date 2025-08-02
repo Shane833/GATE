@@ -15,6 +15,13 @@ class QuizApp(QtWidgets.QWidget):
         self.setWindowTitle("Quiz Generator - MCQ/MSQ/NAT")
         self.resize(800, 600)
 
+        self.setStyleSheet("QLabel { font-size: 16pt; } \
+            QRadioButton { font-size: 16pt; }\
+            QCheckBox { font-size: 16pt; }\
+            QPushButton { font-size: 14pt;}\
+            QTextEdit { font-size: 14pt;}\
+            QLineEdit { font-size: 14pt;} ")
+
         self.questions = []
         self.current_index = 0
         self.user_answers = {}
