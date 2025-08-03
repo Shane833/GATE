@@ -22,3 +22,63 @@ D) Atomicity
 Answer: C
 Explanation: 
 
+MCQ: What causes race condition?
+A) Lack of process synchronization
+B) Deadlock
+C) Inconsistency in data
+D) Concurrent execution of processes
+Answer: A
+Explanation: The race condition occurs due to lack of process synchronization, as the final result of the execution of these processes is dependent on the order of their execution.
+
+NAT: Can race condition occur if the processes are atomic? (True/False)
+Answer: True
+Explanation: Race condition can occur because even if the processes are atomic, the order of their execution is still not defined, which can lead to inconsistencies.
+
+MCQ: How can you find the maximum value of a variable after running some processes concurrently?
+A) By executing the processes which add to the value at the end
+B) By locking the variable before each process updates it
+C) By using a semaphore to control access
+D) By reading the variable at the start and not allowing any updates
+Answer: A
+Explanation: If you execute the processes that add to the variable at the very end, the final value written will be the maximum.
+
+MCQ: How can you find the distinct values after running n concurrent processes?
+A) Find the impact of n processes, then n-1 processes, n-2 processes, and so on, until you are left with a single process.
+​B) Only consider the first and last process.
+C) Average the results of all processes.
+D) Take the result from a randomly selected process.
+​Answer: A
+​Explanation: When we run concurrent processes, they can run in any order. Hence, we have to find the effect of each of the processes combined and individually.
+
+MCQ: How many distinct values can you obtain in a synchronized execution of processes?
+A) 8
+B) 4
+C) 1
+D) 2
+​Answer: C
+​Explanation: When you run processes in a synchronized fashion, the processes always run one at a time.
+
+MCQ: Which section of the processes need to be synchronized?
+A) Entry Section
+B) Remainder Section
+C) Critical Section
+D) Exit Section
+​Answer: C
+​Explanation: Critical section is a code segment where the shared variables can be accessed. That is, communication between processes happens over resource.
+
+MCQ: How can you find the minimum value of a variable after running concurrent processes?
+A) By executing the processes that subtract from the variable at the end.
+B) By locking the variable during updates.
+C) By executing all processes simultaneously.
+D) By using a separate thread to continuously monitor the variable.
+Answer: A
+Explanation: To ensure the minimum value is maintained, you should execute the processes that subtract from the variable at the end, as this way the final value will be the lowest.
+
+MCQ: Which type of processes need to be synchronized?
+A) Running Processes
+B) Operating Processes
+C) Independent Processes
+D) Cooperating/Communicating Processes
+​Answer: D
+​Explanation: Since the processes are communicating with each other, they need to be synchronized.
+
