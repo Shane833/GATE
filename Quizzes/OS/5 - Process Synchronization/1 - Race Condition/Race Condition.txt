@@ -82,3 +82,38 @@ D) Cooperating/Communicating Processes
 ​Answer: D
 ​Explanation: Since the processes are communicating with each other, they need to be synchronized.
 
+MCQ: What best defines mutual exclusion?
+A) Only one process out of all processes involved in communication can execute its critical section.
+B) All processes must execute their critical sections simultaneously.
+C) Processes can execute their critical sections in any order.
+D) A process must finish all instructions within the critical section.
+​Answer: A
+​Explanation: Mutual exclusion is a property of process synchronization that prevents multiple threads or processes from accessing shared resources simultaneously. It is the most important part of concurrency control, as it ensures that only one process can access the critical section at a time.
+
+NAT: If one process is preempted during the execution of its critical section, can another process execute its critical section? (Yes/No)
+​Answer: No
+​Explanation: Due to the property of mutual exclusion, only one process is allowed to execute its critical section, even if it is preempted.
+
+MSQ: What best defines the conditions of progress?
+A) When no process is executing its critical section and a process requests to execute its critical section, it is allowed.
+B) When two processes simultaneously request to execute the critical section, one of them is allowed.
+C) When both processes request to execute the critical section, both are denied.
+D) If no one is executing its critical section and a process requests, it is denied.
+​Answer: A,B
+​Explanation: Progress is defined as the property by which a single process should be allowed to execute its critical section if nobody is executing, or if both processes want to execute their critical section, then one of them should be allowed to execute.
+
+MSQ: What conditions best define Bounded waiting?
+A) Allowing processes to execute indefinitely.
+B) Bounding waiting time of processes.
+C) Only allowing processes to execute for a fixed number of times.
+D) Preventing processes from entering their critical sections.
+​Answer: B,C
+​Explanation: Bounded waiting means that there exists a bound on the number of times that other processes are allowed to enter their critical sections after a process has made a request to enter its critical section and before that request is granted. Options B and C satisfy this condition.
+
+MCQ: In what way should you test the conditions for a solution for process synchronization?
+A) Test Individually
+B) Combine and test
+C) Test randomly
+D) Test in parallel
+Answer: A
+Explanation: Progress, bounded waiting, and mutual exclusion are distinct properties that must be tested individually to ensure the solution for process synchronization is correct.

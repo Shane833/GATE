@@ -148,7 +148,43 @@ C) Right after the fork() call in parent src
 D) Right before the fork() call in parent src
 Answer: C
 
+MSQ: Which of the following are syscalls?
+A) print()
+B) fork()
+C) calculate()
+D) wait()
+Answer: B,D
+Explanation: Syscalls are programming interfaces to the operating system's services. fork() creates a new process, and wait() suspends the execution of the calling process until one of its children processes terminates.
 
+MCQ: What is the function of a wait syscall?
+A) Create a new child process.
+B) Terminate the current process.
+C) Suspend the execution of the calling process until one of its child processes terminates.
+D) Allocate memory to the process.
+Answer: C
+Explanation: The "wait" syscall is used for process synchronization. The parent process waits for the child process to finish its execution.
 
+MSQ: CPU-level threads are also known as:
+A) User-level threads
+B) Kernel-level threads
+C) Lightweight processes
+D) Heavyweight processes
+Answer: B,D
+Explanation: CPU-level threads, also known as kernel-level threads, are managed by the operating system kernel. They are also referred to as heavyweight processes because they have their own independent execution context and resources.
 
+MCQ: What does fork() return in the calling process?
+A) Zero
+B) A negative value
+C) The process ID of the child process
+D) An error code
+Answer: C
+Explanation: In the calling process (the parent), fork() returns the process ID (PID) of the newly created child process. This allows the parent to keep track of and manage its child processes.
+
+MCQ: What does fork() return in the child process?
+A) Zero
+B) A negative value
+C) The process ID of the child process
+D) An error code
+Answer: A
+Explanation: In the child process, fork() returns zero. This allows the child process to distinguish itself from the parent and execute different code if needed.
 

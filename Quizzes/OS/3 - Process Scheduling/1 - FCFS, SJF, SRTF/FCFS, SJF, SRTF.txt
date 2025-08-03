@@ -1,0 +1,191 @@
+MCQ: Who is responsible for CPU scheduling?
+A) Short-term scheduler
+B) Long-term scheduler
+C) Medium-term scheduler
+D) Dispatcher
+Answer: A
+Explanation: The short-term scheduler, also known as the CPU scheduler, selects processes that are ready to execute and allocates the CPU to them. It makes decisions frequently to ensure efficient CPU utilization.
+
+MSQ: What are the goals of CPU scheduling algorithms?
+A) Maximize CPU utilization/throughput
+B) Minimize wait time and turnaround time
+C) Maximize response time
+D) Fairness
+Answer: A,B,D
+Explanation: CPU scheduling aims to use the CPU efficiently, minimize how long processes wait, and ensure all processes get a fair share of CPU time.
+
+MCQ: What is arrival time?
+A) The total time a process spends in the ready queue.
+B) The time a process takes to complete execution.
+C) The time a process spends in the CPU.
+D) The time at which a process enters the ready queue.
+Answer: D
+Explanation: Arrival time is the point in time when a process becomes ready for execution and enters the ready queue.
+
+MCQ: What is burst/service time?
+A) The total time a process spends in the ready queue.
+B) The time at which a process enters the ready queue.
+C) The time a process spends in the CPU.
+D) The time a process spends waiting for I/O operations. 
+Answer: C
+Explanation: Burst time, also known as service time, is the total amount of time a process needs to execute on the CPU to complete its task.
+
+MCQ: What is wait time?
+A) The time a process takes to complete execution.
+B) The time a process spends in the CPU.
+C) The time at which a process enters the ready queue.
+D) The total time a process spends in the ready queue.
+Answer: D
+Explanation: Wait time is the total amount of time a process spends waiting in the ready queue, waiting for its turn to be allocated to the CPU.
+
+MCQ: What is completion time?
+A) The time a process spends in the CPU.
+B) The time at which a process finishes execution.
+C) The total time a process spends in the ready queue.
+D) The time a process takes to complete execution.
+Answer: B
+Explanation: Completion time is the point in time when a process finishes its execution.
+
+MCQ: What is turnaround time?
+A) The time a process spends in the CPU.
+B) The time at which a process finishes execution.
+C) The total time from process arrival to completion.
+D) The time a process spends waiting for I/O operations.
+Answer: C
+Explanation: Turnaround time is the total time a process spends in the system, from its arrival to its completion. It's the sum of burst time and waiting time.
+
+MSQ: What is response time?
+A)  The time a process spends in the CPU.
+B)  The time it takes to start responding, not finish.
+C)  The total time from process arrival to completion.
+D)  The time it takes for process to first receive CPU.
+Answer: B,D
+Explanation: Response time is how long it takes from when a task is submitted until the first response is produced. It's about getting started, not finishing the whole task i.e the point at which the process gets CPU for the first time.
+
+MCQ: How do you calculate turnaround time?
+A) Difference of arrival time and completion time.
+B) Difference of burst time and arrival time.
+C) Difference of completion time and arrival time.
+D) Difference of burst time and wait time.
+Answer: C
+Explanation: Turnaround time is the total time a process spends in the system. You calculate it by finding the difference between the completion time and the arrival time.
+
+MCQ: How do you calculate wait time?
+A) Difference of arrival time and burst time.
+B) Difference of completion time and arrival time.
+C) Difference of turnaround time and burst time.
+D) Difference of burst time and response time.
+Answer: C
+Explanation: Wait time is the total time a process spends waiting in the ready queue. You calculate it by subtracting the burst time from the turnaround time.
+
+MCQ: The scheduling criteria of the FCFS algorithm is _____, while the tie-breaker is _____.
+A) smaller burst time, smaller process ID
+B) larger arrival time, larger process ID
+C) smaller arrival time, smaller process ID
+D) larger burst time, larger process ID
+Answer: C
+Explanation: FCFS gives priority to processes that arrive earlier. If processes arrive at the same time, the one with the smaller process ID goes first.
+
+MCQ: What is the relationship between wait time and response time in non-preemptive scheduling algorithms?
+A) Wait time is greater than response time.
+B) Wait time is equal to response time.
+C) Wait time is less than response time.
+D) There is no direct relationship between wait time and response time.
+Answer: B
+Explanation: In non-preemptive scheduling, a process runs until it finishes or needs I/O. So, the time it waits before running is the same as the time before it responds.
+
+MCQ: In preemptive scheduling algorithms, how does wait time relate to response time?
+A) Wait time is always equal to response time.
+B) Wait time is always less than response time.
+C) Wait time can be greater than or equal to response time.
+D) Wait time is always unrelated to response time.
+Answer: C
+Explanation: In preemptive scheduling, a process might get interrupted and have to wait again, so the total wait time can be longer than just the initial response time.
+
+MCQ: What is the total number of context switches for n processes in a non-preemptive algorithm?
+A) n
+B) n - 1
+C) n + 1
+D) 2n
+Answer: B
+Explanation: In a non-preemptive algorithm, each process runs to completion before another starts. So, there's one switch between each process, meaning n-1 total switches for n processes GIVEN THE FIRST AND LAST CONTEXT SWITCH IS IGNORED.
+
+MSQ: What are the disadvantages of FCFS?
+A) Can lead to the convoy effect.
+B) Not suitable for time-sharing systems.
+C) Simple to implement.
+D) Minimizes average waiting time.
+Answer: A,B
+Explanation: FCFS can cause the convoy effect, where short processes wait a long time behind a long one. It's also not ideal for time-sharing because it doesn't switch between processes frequently.
+
+NAT: Does starvation occur in FCFS? (Yes/No)
+Answer: No
+Explanation: In FCFS, starvation is generally not a concern. Since processes are executed in the order they arrive, every process will eventually get CPU time. Once a process is at the front of the queue, it will execute to completion before any subsequent processes are started.
+
+MCQ: The scheduling criteria is _____ in SJF, while the tie-breaker is _____.
+A) smaller arrival time first, SRTF resolution technique.
+B) smaller burst time first, FCFS resolution technique.
+C) larger burst time first, priority resolution technique.
+D) larger arrival time first, LJF resolution technique.
+Answer: B
+Explanation: SJF prioritizes processes with the shortest burst times. If there's a tie, it uses the First-Come, First-Served method to decide which process goes first.
+
+MSQ: Identify the non-preemptive algorithms.
+A) SJF
+B) HRRN
+C) SRTF
+D) FCFS
+Answer: A,B,D
+Explanation: SJF, HRRN, and FCFS are non-preemptive, meaning once a process starts, it runs until completion. SRTF is preemptive, as it can interrupt a running process.
+
+MCQ: How do you check if your Gantt chart is correct?
+A) The sum of arrival times should equal the sum of burst times.
+B) The sum of burst times should equal the completion time of the last process.
+C) The average of arrival times should equal the average of completion times.
+D) The completion time of the first process should equal the arrival time of the last process.
+Answer: B
+Explanation: The total processing time should match the time it takes for all processes to complete when CPU is not idle if it is idle then add the Idle time to Sum of BT as well. JUST A SHORTCUT LEARN IT.
+
+NAT: Can the shortest job first scheduling criteria address the convoy effect? (Yes/No)
+Answer: Yes
+Explanation: SJF helps reduce the convoy effect by prioritizing shorter jobs, which minimizes the overall waiting time for processes.
+
+MCQ: What is a disadvantage of SJF?
+A) Starvation.
+B) Increased throughput.
+C) Low average waiting time.
+D) Simple implementation.
+Answer: A
+Explanation: SJF can lead to starvation if short processes keep arriving, preventing longer processes from ever getting executed.
+
+MSQ: What are the advantages of SJF?
+A) Simple to implement.
+B) Minimum average waiting and turnaround time among non-preemptive algorithms.
+C) Fairness.
+D) Better throughput in continuous execution.
+Answer: B,D
+Explanation: SJF optimizes for minimal wait times and maximizes the amount of work done by the CPU when jobs arrive in a steady stream.
+
+MSQ: What are the advantages of FCFS?
+A) Simple to implement.
+B) Minimum average waiting and turnaround time among non-preemptive algorithms.
+C) No Starvation
+D) Better throughput in continuous execution.
+Answer: A,C
+Explanation:
+
+MSQ: What are the disadvantages of SJF?
+A) Can lead to starvation.
+B) Requires knowledge of future burst times.
+C) Simple to implement.
+D) No option for Preemption.
+Answer: A,B,D
+Explanation: SJF can cause starvation for longer processes if short ones keep arriving. It also needs to know how long each process will take beforehand, which isn't always possible.
+
+MCQ: What is starvation?
+A) When a process with higher priority waits indefinitely for the CPU.
+B) When a process with lower priority waits indefinitely for the CPU.
+C) When all processes get an equal share of the CPU.
+D) When the CPU is allocated to the process with the shortest burst time.
+Answer: B
+Explanation: Starvation occurs when a low-priority process is continuously denied access to the CPU because other high-priority processes keep running.
