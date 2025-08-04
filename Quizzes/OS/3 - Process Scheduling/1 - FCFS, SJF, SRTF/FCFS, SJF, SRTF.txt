@@ -189,3 +189,67 @@ C) When all processes get an equal share of the CPU.
 D) When the CPU is allocated to the process with the shortest burst time.
 Answer: B
 Explanation: Starvation occurs when a low-priority process is continuously denied access to the CPU because other high-priority processes keep running.
+
+MCQ: When working with preemptive algorithms, always design a _____.
+A) separate Gantt chart for each process.
+B) table showing process priorities.
+C) additional column for updating burst time.
+D) graph of CPU utilization over time.
+​Answer: C
+​Explanation: Preemptive algorithms can interrupt processes, so you need to track the remaining burst time after each interruption.
+
+MCQ: _____ is the condition for preemption in SRTF, while _____ is the tie-breaker.
+A) Larger burst time, priority resolution technique.
+B) Smaller burst time, FCFS resolution technique.
+C) Smaller arrival time, SRTF resolution technique.
+D) Larger arrival time, LJF resolution technique.
+​Answer: B
+​Explanation: SRTF preempts the currently running process if a new process arrives with a shorter remaining burst time. If there's a tie, it uses the First-Come, First-Served method to decide which process goes first.
+
+MCQ: If no new processes are arriving while solving with the SRTF algorithm, you can resort to which algorithm?
+A) FCFS
+B) SJF
+C) Priority scheduling
+D) Round Robin
+​Answer: B
+​Explanation: If no new processes are coming, SRTF essentially becomes SJF, as there's no need to consider arrival times anymore.
+
+MCQ: Which scheduling algorithm provides the minimum average wait time and turnaround time among all scheduling algorithms?
+A) FCFS
+B) SJF
+C) SRTF
+D) Round Robin
+​Answer: C
+​Explanation: SRTF is known for minimizing average wait and turnaround times because it prioritizes the shortest remaining jobs.
+
+MCQ: If it is specified that you have to find the minimum average wait time and turnaround time using a non-preemptive algorithm, which algorithm should you use?
+A) FCFS
+B) SJF
+C) Priority scheduling
+D) Round Robin
+​Answer: B
+​Explanation: SJF is the non-preemptive algorithm that minimizes average wait and turnaround times 
+
+MCQ: If it is specified that you have to find the minimum average wait time and turnaround time using a preemptive algorithm, which algorithm should you use?
+A) SRTF
+B) Priority scheduling
+C) Round Robin
+D) Multilevel Queue Scheduling
+​Answer: A
+​Explanation: SRTF is the preemptive algorithm that minimizes average wait and turnaround times.
+
+MSQ: Which of the following are disadvantages of SRTF?
+A) Can lead to starvation.
+B) Requires knowledge of future burst times.
+C) Simple to implement.
+D) Maximizes CPU utilization.
+​Answer: A,B
+​Explanation: SRTF can cause starvation for longer processes if short ones keep arriving. It also needs to know how long each process will take beforehand, which isn't always possible.
+
+MSQ: What are some conditions where SRTF behaves as SJF?
+A) When all processes have the same burst time.
+B) When all processes arrive at the same time but in increasing order of burst time.
+C) When the CPU is idle.
+D) When all processes arrive at different times with greater burst times.
+​Answer: B,D
+​Explanation: SRTF and SJF will behave the same when there are no new processes arriving during execution, or when processes arrive in order of increasing burst time.
