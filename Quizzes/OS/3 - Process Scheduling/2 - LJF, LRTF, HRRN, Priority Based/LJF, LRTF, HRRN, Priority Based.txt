@@ -3,104 +3,104 @@ A) processes with shorter burst times, SRTF resolution technique.
 B) processes with earlier arrival times, priority resolution technique.
 C) processes with higher priority, round robin resolution technique.
 D) processes with larger burst times, FCFS resolution technique.
-​Answer: D
-​Explanation: LJF prioritizes processes with the longest burst times. If there's a tie, it uses the First-Come, First-Served method to decide which process goes first.
+Answer: D
+Explanation: LJF prioritizes processes with the longest burst times. If there's a tie, it uses the First-Come, First-Served method to decide which process goes first.
 
 MSQ: What are some disadvantages of LJF?
 A) Increased throughput.
 B) Potential for starvation of short processes.
 C) Can lead to the convoy effect.
 D) Simple to implement.
-​Answer: B,C
-​Explanation: LJF can cause shorter processes to wait indefinitely, and it can also lead to the convoy effect if a very long process arrives first.
+Answer: B,C
+Explanation: LJF can cause shorter processes to wait indefinitely, and it can also lead to the convoy effect if a very long process arrives first.
 
 MCQ: While solving a question using the LRTF technique, you should update your burst time with every _____.
 A) process arrival
 B) clock tick
 C) context switch
 D) quantum
-​Answer: B
-​Explanation: LRTF is a preemptive algorithm, so you need to keep track of the remaining burst time for each process at every time interval and compare which process currently have the largest BT.
+Answer: B
+Explanation: LRTF is a preemptive algorithm, so you need to keep track of the remaining burst time for each process at every time interval and compare which process currently have the largest BT.
 
 MSQ: The condition for preemption in LRTF is _____ while tie-breaker is _____.
 A) smallest burst time, priority resolution technique.
 B) largest arrival time, FCFS resolution technique.
 C) largest burst time, SRTF resolution technique.
 D) largest burst time, FCFS resolution technique.
-​Answer: D
-​Explanation: LRTF preempts the currently running process if a new process arrives with a larger burst time. If there's a tie, it uses the First-Come, First-Served method.
+Answer: D
+Explanation: LRTF preempts the currently running process if a new process arrives with a larger burst time. If there's a tie, it uses the First-Come, First-Served method.
 
 MSQ: In the LRTF algorithm, sometimes all the processes run in FCFS manner in the end because:
 A) all processes have the same arrival time.
 B) all the burst times are reduced to one and they are resolved using FCFS.
 C) there are no context switches left.
 D) the CPU becomes idle.
-​Answer: B
-​Explanation: Once all processes have a remaining burst time of 1, LRTF effectively becomes FCFS since there's no longer any difference in remaining burst times.
+Answer: B
+Explanation: Once all processes have a remaining burst time of 1, LRTF effectively becomes FCFS since there's no longer any difference in remaining burst times.
 
 MCQ: Under what conditions does LRTF behave as FCFS?
 A) When no process has finished and all have the same remaining burst time.
 B) When all processes arrive at the same time.
 C) When the CPU is idle.
 D) When all processes have different arrival times.
-​Answer: A
-​Explanation: If all processes have the same remaining burst time, LRTF will schedule them in the order they arrived, which is the same as FCFS.
+Answer: A
+Explanation: If all processes have the same remaining burst time, LRTF will schedule them in the order they arrived, which is the same as FCFS.
 
 MCQ: What is the goal of the Highest Response Ratio Next algorithm?
 A) To minimize turnaround time.
 B) To prevent starvation.
 C) To maximize CPU utilization.
 D) To reduce context switching.
-​Answer: B
-​Explanation: HRRN aims to prevent starvation by giving priority to processes that have been waiting for a long time.
+Answer: B
+Explanation: HRRN aims to prevent starvation by giving priority to processes that have been waiting for a long time.
 
 MCQ: What is the formula for calculating the highest response ratio?
 A) (Arrival time + Burst time) / Waiting time
 B) (Waiting time / Burst time) + Arrival time
 C) (Burst time / Waiting time) + Arrival time 
 D) (Current waiting time + Service time) / Service time
-​Answer: D
-​Explanation: The formula (Current waiting time + Service time) / Service time gives priority to jobs that have been waiting longer, preventing starvation. The current waiting time is calculated as the current clock time minus the process's arrival time.
+Answer: D
+Explanation: The formula (Current waiting time + Service time) / Service time gives priority to jobs that have been waiting longer, preventing starvation. The current waiting time is calculated as the current clock time minus the process's arrival time.
 
 MCQ: The tie-breaker in HRRN is:
 A) SJF resolution technique.
 B) FCFS resolution technique.
 C) Priority resolution technique.
 D) Round Robin resolution technique.
-​Answer: A
-​Explanation: If two or more processes have the same highest response ratio, the process with the shortest job (burst time) will be scheduled first 
+Answer: A
+Explanation: If two or more processes have the same highest response ratio, the process with the shortest job (burst time) will be scheduled first 
 
 MCQ: What is the scheduling criteria in priority-based algorithms?
 A) Processes with the shortest burst time.
 B) Processes with the earliest arrival time.
 C) Processes with the highest priority.
 D) Processes that have been waiting the longest.
-​Answer: C
-​Explanation: Priority-based algorithms schedule processes according to their assigned priority, with higher priority processes being executed first.
+Answer: C
+Explanation: Priority-based algorithms schedule processes according to their assigned priority, with higher priority processes being executed first.
 
 MSQ: _____ , _____ and ______regarding priority-based algorithms will be provided in the question.
 A) Algorithm type and tie-breaker.
 B) Arrival time and burst time.
 C) Process name and priority.
 D) Waiting time and turnaround time.
-​Answer: A,C
-​Explanation: To solve priority-based scheduling problems, you'll need to know whether it's preemptive or non-preemptive, and how to handle ties in priority.
+Answer: A,C
+Explanation: To solve priority-based scheduling problems, you'll need to know whether it's preemptive or non-preemptive, and how to handle ties in priority.
 
 MCQ: What is an advantage of priority-based algorithms?
 A) Better response times.
 B) Simplicity of implementation.
 C) Fairness for all processes.
 D) Lower overhead.
-​Answer: A
-​Explanation: Priority-based algorithms can provide better response times for high-priority processes, ensuring important tasks are completed quickly.
+Answer: A
+Explanation: Priority-based algorithms can provide better response times for high-priority processes, ensuring important tasks are completed quickly.
 
 MCQ: What is a disadvantage of priority-based algorithms?
 A) Complex implementation.
 B) High overhead.
 C) Starvation.
 D) Unpredictable response times.
-​Answer: C
-​Explanation: Priority-based algorithms can lead to starvation, where low-priority processes are indefinitely postponed if higher-priority processes continuously arrive.
+Answer: C
+Explanation: Priority-based algorithms can lead to starvation, where low-priority processes are indefinitely postponed if higher-priority processes continuously arrive.
 
 NAT: You should assume that processes with priority 1 have the highest priority? (True/False)
 Answer: False
