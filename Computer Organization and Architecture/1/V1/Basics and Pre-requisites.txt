@@ -1,0 +1,45 @@
+MSQ: Identify the correct buses used in CPU.
+A) Memory Bus
+B) Data Bus 
+C) Address Bus
+D) Control Bus
+Answer: B,C,D
+Explanation:
+
+NAT: Address Bus is Bidirectional. (True/False)
+Answer: False
+Explanation: Since address bus is used to send signals from CPU to Memory hence it only needs to be unidirectional.
+
+NAT: Control Bus is Fully Bidirectional. (True/False)
+Answer: False
+Explanation: False since the individual lines within the bus are unidirectional.
+
+MCQ: Select the nature of Data Bus.
+A) Fully Bidirectional
+B) from CPU to Memory
+C) from Memory to CPU
+D) Unidirectional 
+Answer: A
+Explanation: Data Bus connects both simultaneously and each individual line can send data both ways however only one can use this bus to send at a time.
+
+Value stored by PC
+
+Value stored by AC
+
+Value stored by IR
+
+Value stored by SP
+
+Some of the bits of PSW
+
+Address register used for ?
+
+Data register is used for ?
+
+Operands in Register Based Architecture ?
+
+Operands in Register-Memory Based Architecture ?
+
+Operands in AC Based Architecture ?
+
+complex system architecture ?

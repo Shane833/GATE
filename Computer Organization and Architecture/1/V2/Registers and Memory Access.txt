@@ -1,0 +1,41 @@
+Read and write signal sent from ?
+(Arrange the statements to correctly access memory read or write)
+
+ready and wait signal sent from ?
+
+what are these signals ? Control signals
+
+if 16K cells in memory, how many bits in address ? 2^14
+
+if 2G cells in memory, how many bits in address ? 2^31
+
+if address is 27 bits, then how many cells ? 128M
+
+Storage of a byte addressable memory cell ? 1 Byte
+
+Storage of a word addressable memory cell ? 1 Byte
+
+Total memory capacity = ? No. of cells * capacity of each cell
+
+Memory capacity = 8MB for byte addressable memory, no. of address bits ? 23
+
+Memory capacity 16GB for word addressable memory (1 word = 8 bytes), then address bite ? 31
+
+Given word addressable memory with word size 64 bits, address is 18 bits long, then memory size ? 2MB
+
+Which memory addressing results in least wastage of space BA or WA ? Byte Addressable
+
+how to find address of nth instruction ? Base Address + (n - 1) * size of each instruction
+
+How to find the PC value for nth instuction ? Base Address + n * size of each instruction (since we are basically looking one ahead)
+
+Systems based on byte ordering ? Little-Endian (MSB at lowest position), Big-Endian (MSB at highest position)
+
+Max and min address length for a 32-bit architecture CPU ? (2^32 - 1)(all 32 1s)(max) 0(all 32 0s)(min)
+
+
+
+
+
+
+
