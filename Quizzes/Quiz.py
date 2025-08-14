@@ -1,19 +1,23 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 import sys, random, os
+import re
 
 class Question:
-    def __init__(self, text, options, answer, explanation, qtype="MCQ"):
+    def __init__(self, text, options, answer, explanation, qtype="MCQ", image_path=None, explanation_image_path=None):
         self.text = text
         self.options = options
         self.answer = answer
         self.explanation = explanation
         self.qtype = qtype
+        self.image_path = image_path
+        self.explanation_image_path = explanation_image_path
 
 class QuizApp(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Quiz Generator - MCQ/MSQ/NAT")
-        self.resize(800, 600)
+        self.setMinimumSize(850, 700)
+        self.resize(850, 700)
 
         self.setStyleSheet("QLabel { font-size: 16pt; } \
             QRadioButton { font-size: 16pt; }\
@@ -44,6 +48,10 @@ class QuizApp(QtWidgets.QWidget):
         self.question_label = QtWidgets.QLabel("")
         self.question_label.setWordWrap(True)
         self.layout.addWidget(self.question_label)
+
+        self.image_label = QtWidgets.QLabel()
+        self.image_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.layout.addWidget(self.image_label)
 
         self.options_group = QtWidgets.QButtonGroup(self)
         self.options_layout = QtWidgets.QVBoxLayout()
@@ -77,6 +85,7 @@ class QuizApp(QtWidgets.QWidget):
 
     def toggle_quiz_controls(self, enable):
         self.question_label.setVisible(enable)
+        self.image_label.setVisible(False)
         self.nat_input.setVisible(enable)
         self.prev_btn.setEnabled(enable)
         self.next_btn.setEnabled(enable)
@@ -100,10 +109,22 @@ class QuizApp(QtWidgets.QWidget):
             self.file_name_label.setText(os.path.basename(file_path))
             with open(file_path, "r") as file:
                 blocks = file.read().strip().split("\n\n")
+            
+            quiz_dir = os.path.dirname(file_path)
+
             for block in blocks:
                 lines = block.strip().split("\n")
                 qtype = lines[0].split(":")[0].strip()
-                q_text = lines[0].split(":",1)[1].strip()
+                q_text_raw = lines[0].split(":",1)[1].strip()
+
+                image_path = None
+                q_text = q_text_raw
+                image_match = re.search(r'\[image:\s*(.*?)\s*\]', q_text_raw)
+                if image_match:
+                    image_filename = image_match.group(1)
+                    image_path = os.path.join(quiz_dir, image_filename)
+                    q_text = q_text_raw.replace(image_match.group(0), "").strip()
+
                 if qtype in ["MCQ", "MSQ"]:
                     options = [line[3:].strip() for line in lines[1:5]]
                     answer = lines[5].split(":")[-1].strip()
@@ -114,8 +135,17 @@ class QuizApp(QtWidgets.QWidget):
                     explanation_index = 2
                 else:
                     continue
-                explanation = "\n".join(lines[explanation_index:]).replace("Explanation:", "").strip() if len(lines) > explanation_index else "No explanation provided."
-                self.questions.append(Question(q_text, options, answer, explanation, qtype))
+
+                raw_explanation = "\n".join(lines[explanation_index:]).replace("Explanation:", "").strip() if len(lines) > explanation_index else "No explanation provided."
+                explanation_image_path = None
+                explanation_text = raw_explanation
+                expl_image_match = re.search(r'\[image:\s*(.*?)\s*\]', raw_explanation)
+                if expl_image_match:
+                    expl_image_filename = expl_image_match.group(1)
+                    explanation_image_path = os.path.join(quiz_dir, expl_image_filename)
+                    explanation_text = raw_explanation.replace(expl_image_match.group(0), "").strip()
+                
+                self.questions.append(Question(q_text, options, answer, explanation_text, qtype, image_path, explanation_image_path))
 
             total_available = len(self.questions)
             num, ok = QtWidgets.QInputDialog.getInt(self, "Number of Questions", f"Enter number of questions (max {total_available}):", min=1, max=total_available)
@@ -134,6 +164,18 @@ class QuizApp(QtWidgets.QWidget):
             return
         q = self.questions[self.current_index]
         self.question_label.setText(f"Q{self.current_index+1}: {q.text}")
+        
+        self.image_label.clear()
+        if q.image_path and os.path.exists(q.image_path):
+            pixmap = QtGui.QPixmap(q.image_path)
+            
+            if pixmap.width() > 800 or pixmap.height() > 600:
+                pixmap = pixmap.scaled(800, 600, QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation)
+            
+            self.image_label.setPixmap(pixmap)
+            self.image_label.show()
+        else:
+            self.image_label.hide()
 
         for w in self.option_widgets:
             self.options_layout.removeWidget(w)
@@ -231,10 +273,22 @@ class QuizApp(QtWidgets.QWidget):
         if wrong_answers:
             self.explanation_area.append("<b>Questions you got wrong:</b><br>")
             for q, ans in wrong_answers:
-                self.explanation_area.append(f"<span style='color:red;'>Q: {q.text}</span><br>")
+                image_info = ""
+                if q.image_path:
+                    image_info = f" (Image: {os.path.basename(q.image_path)})"
+                
+                self.explanation_area.append(f"<span style='color:red;'>Q: {q.text}{image_info}</span><br>")
                 self.explanation_area.append(f"<span style='color:orange;'>Your Answer: {ans}</span><br>")
                 self.explanation_area.append(f"<span style='color:green;'>Correct Answer: {q.answer}</span><br>")
-                self.explanation_area.append(f"<span style='color:blue;'>Explanation: {q.explanation}</span><br><br>")
+
+                explanation_html = f"<span style='color:blue;'>Explanation: {q.explanation}</span>"
+                if q.explanation_image_path and os.path.exists(q.explanation_image_path):
+                    image_url = QtCore.QUrl.fromLocalFile(q.explanation_image_path).toString()
+                    # UPDATED: Changed max-width to 800px and added max-height at 600px
+                    explanation_html += f'<br><img src="{image_url}" style="max-width:800px; max-height:600px; width:auto; height:auto;">'
+                
+                self.explanation_area.append(explanation_html)
+                self.explanation_area.append("<br><br>")
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

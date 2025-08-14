@@ -1,25 +1,62 @@
-Read and write signal sent from ?
-(Arrange the statements to correctly access memory read or write)
+MCQ: Read and Write signals are sent from ?
+A) Memory to CPU
+B) CPU to Memory
+C) CPU to I/O
+D) I/O to CPU
+Answer: B
 
-ready and wait signal sent from ?
+MCQ: Ready and Wait signals are sent from ?
+A) Memory to CPU
+B) CPU to Memory
+C) CPU to I/O
+D) I/O to CPU
+Answer: A
 
-what are these signals ? Control signals
+NAT: If 16K cells in memory, then address is of _____ bits. 
+Answer: 14
+Explanation: Total Memory Locations = 16K = 2^14
+Bits in Address = log2(No. of Memory Locations) = log2(2^14)= 14
 
-if 16K cells in memory, how many bits in address ? 2^14
+NAT: If 2G cells in memory, then address is of _____ bits. 
+Answer: 31
+Explanation: Total Memory Locations = 2G = 2^31
+Bits in Address = log2(No. of Memory Locations) = log2(2^31) = 31
 
-if 2G cells in memory, how many bits in address ? 2^31
+NAT: If address is 27 bits, then memory has _____ M cells ? 
+Answer: 128
+Explanation: No. of memory location = 2 ^ (bits in address)
+No. of Memory Locations/Cells = 2^27 = 128M
 
-if address is 27 bits, then how many cells ? 128M
+MCQ: Storage of a byte addressable memory cell ? 
+A) 1 Word
+B) 2 Byte
+C) 1 Byte
+D) 2 Word
+Answer: C
 
-Storage of a byte addressable memory cell ? 1 Byte
+MCQ: Storage of a word addressable memory cell ? 
+A) 1 Word
+B) 2 Byte
+C) 1 Byte
+D) 2 Word
+Answer: A
 
-Storage of a word addressable memory cell ? 1 Byte
+MSQ: Total memory capacity is given by ? 
+A) Bits in Address * capacity of each cell
+B) No. of cells * capacity of each cell
+C) Total address locations * capacity of each cell
+D) No. of cells * 1 byte
+Answer: B,C
+Explanation: There will be as many address as there are cells in memory. 
 
-Total memory capacity = ? No. of cells * capacity of each cell
+NAT: Memory capacity = 8MB for byte addressable memory, how many bits in address ? 
+Answer: 23
+Explanation: 8MB = 2^23
+No. of bits in address = log2(2^23) = 23
 
-Memory capacity = 8MB for byte addressable memory, no. of address bits ? 23
-
-Memory capacity 16GB for word addressable memory (1 word = 8 bytes), then address bite ? 31
+NAT: Memory capacity 16GB for word addressable memory (1 word = 8 bytes), how many bits in address ?
+Answer: 31
+Explanation: 
 
 Given word addressable memory with word size 64 bits, address is 18 bits long, then memory size ? 2MB
 
@@ -33,9 +70,9 @@ Systems based on byte ordering ? Little-Endian (MSB at lowest position), Big-End
 
 Max and min address length for a 32-bit architecture CPU ? (2^32 - 1)(all 32 1s)(max) 0(all 32 0s)(min)
 
+Read and write signal sent from ?
+(Arrange the statements to correctly access memory read or write)
 
-
-
-
+what are these signals ? Control signals
 
 

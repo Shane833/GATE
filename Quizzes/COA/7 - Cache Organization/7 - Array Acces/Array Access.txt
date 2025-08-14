@@ -59,3 +59,4 @@ D) No. of elements in Array
 Answer: D
 Explanation: CPU will generate as many addresses as there are element in the array hene that will be the no. of memory accesses.
 
+

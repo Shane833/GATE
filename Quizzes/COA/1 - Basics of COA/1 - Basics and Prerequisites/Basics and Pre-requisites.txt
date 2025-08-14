@@ -44,7 +44,11 @@ D) Next Instruction
 Answer: C
 
 MCQ: What is the value stored in the Stack Pointer?
-
+A) Memory Address of bottom of Stack of current process
+B) Memory Address of starting of Stack of current process
+C) Memory Address of top of Stack of current process
+D) Memory Address of ending of Stack of current process
+Answer: C
 
 MSQ: What are some of the flags of Program Status Word ?
 A) Branch Flag
@@ -58,16 +62,16 @@ A) Used to send Memory Address to CPU
 B) Used to send Memory Address to Memory
 C) Used by Memory to receive Memory Address 
 D) Used by CPU to receive Memory Address 
-Answer: B,D
-Explanation: Since the Address bus is unidirectional from CPU to Memory hence we can only send from CPU to memory and memory can only receive.
+Answer: B
+Explanation: Since the Address bus is unidirectional from CPU to Memory hence we can only send from CPU to memory and memory can only receive but it doesn't uses it directly.
 
 MSQ: What is the Data register used for ?
 A) Used to send Data to CPU
 B) Used to send Data to Memory
 C) Used by Memory to receive Data
 D) Used by CPU to receive Data 
-Answer: A,B,C,D
-Explanation: Since Data bus is bidirectional so we can use it send and receive data in both ways
+Answer: B,D
+Explanation: Since Data bus is bidirectional so we can use it send and receive data in both ways however CPU is the one that uses it.
 
 MCQ: Where can the operand for instructions come from in Register Based Architecture ?
 A) Any combination of register and memory
