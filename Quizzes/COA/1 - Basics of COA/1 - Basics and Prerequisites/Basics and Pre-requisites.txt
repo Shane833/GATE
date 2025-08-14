@@ -1,0 +1,98 @@
+MSQ: Identify the correct buses used in CPU.
+A) Memory Bus
+B) Data Bus 
+C) Address Bus
+D) Control Bus
+Answer: B,C,D
+
+NAT: Address Bus is Bidirectional. (True/False)
+Answer: False
+Explanation: Since address bus is used to send signals from CPU to Memory hence it only needs to be unidirectional.
+
+NAT: Control Bus is Fully Bidirectional. (True/False)
+Answer: False
+Explanation: False since the individual lines within the bus are unidirectional.
+
+MCQ: Select the nature of Data Bus.
+A) Fully Bidirectional
+B) from CPU to Memory
+C) from Memory to CPU
+D) Unidirectional 
+Answer: A
+Explanation: Data Bus connects both simultaneously and each individual line can send data both ways however only one can use this bus to send at a time.
+
+MCQ: What is the value stored by Program Counter?
+A) Memory Address of Current Instruction
+B) Memory Address of Next Instruction
+C) Current Instruction
+D) Next Instruction
+Answer: B
+
+MSQ: What is/are the value stored by Accumulator
+A) Result of ALU Operation
+B) Memory Address of Next Instruction
+C) Current Instruction
+D) ALU Operand
+Answer: A,D
+Explanation: Accumulator usually stores the result of the ALU operation however in AC-based architecture, it can also store one of the operands for the ALU operation.
+
+MCQ: What is the value stored by Instruction Register?
+A) Memory Address of Current Instruction
+B) Memory Address of Next Instruction
+C) Current Instruction
+D) Next Instruction
+Answer: C
+
+MCQ: What is the value stored in the Stack Pointer?
+
+
+MSQ: What are some of the flags of Program Status Word ?
+A) Branch Flag
+B) Carry Flag
+C) Sign Flag
+D) Zero Flag
+Answer: B,C,D
+
+MSQ: What is the Address register used for ?
+A) Used to send Memory Address to CPU
+B) Used to send Memory Address to Memory
+C) Used by Memory to receive Memory Address 
+D) Used by CPU to receive Memory Address 
+Answer: B,D
+Explanation: Since the Address bus is unidirectional from CPU to Memory hence we can only send from CPU to memory and memory can only receive.
+
+MSQ: What is the Data register used for ?
+A) Used to send Data to CPU
+B) Used to send Data to Memory
+C) Used by Memory to receive Data
+D) Used by CPU to receive Data 
+Answer: A,B,C,D
+Explanation: Since Data bus is bidirectional so we can use it send and receive data in both ways
+
+MCQ: Where can the operand for instructions come from in Register Based Architecture ?
+A) Any combination of register and memory
+B) Register and Memory or Register
+C) Register and Register
+D) Accumulator and Register
+Answer: C
+
+MCQ: Where can the operand for instructions come from in Register-Memory Based Architecture ?
+A) Any combination of register and memory
+B) Register and Memory or Register
+C) Register and Register
+D) Accumulator and Register
+Answer: B
+
+MCQ: Where can the operand for instructions come from in AC Based Architecture ?
+A) Any combination of register and memory
+B) Register and Memory or Register
+C) Register and Register
+D) Accumulator and Register
+Answer: D
+
+MCQ: Where can the operand for instructions come from in Complex system architecture ?
+A) Any combination of register and memory
+B) Register and Memory or Register
+C) Register and Register
+D) Accumulator and Register
+Answer: A
