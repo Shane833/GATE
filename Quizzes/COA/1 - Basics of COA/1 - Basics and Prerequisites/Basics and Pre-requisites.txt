@@ -100,3 +100,24 @@ B) Register and Memory or Register
 C) Register and Register
 D) Accumulator and Register
 Answer: A
+
+MSQ: What is/are part of Computer Architecture ?
+A) Memory Organization
+B) CPU Design
+C) Performance
+D) Data Format
+Answer: B,D
+
+MSQ: What is/are part of Computer Architecture ?
+A) Instrcutions
+B) I/O Organization
+C) Data Formats
+D) Addressing Mode
+Answer: A,C
+
+MSQ: What is/are part of Computer Organization ?
+A) Memory Organization
+B) I/O Organization
+C) Performance
+D) CPU Design
+Answer: A,B,C

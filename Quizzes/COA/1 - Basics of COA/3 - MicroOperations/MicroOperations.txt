@@ -1,0 +1,46 @@
+NAT: Accumulator is used to store result of ALU only. (True/False)
+Answer: True
+Explanation: In AC-based architectures, AC can be used to provide one of the operands for ALU
+
+NAT: Size of Instruction Register is always equal to the size of Accumulator. (True/False)
+Answer: False
+Explanation: IR stores the current running instruction while AC stores the address of the next instruction.
+
+NAT: Size of Program Counter is always equal to the size of Address Register. (True/False)
+Answer: True
+Explanation: Both stores memory addresses
+
+NAT: Ready control Signal is unidirectional from memory to CPU. (True/False)
+Answer: True
+Explanation: Memory signals when it is ready or signals wait when it is not, however CPU can only send read and write enable signals.
+
+NAT: CPU Design is given along computer architecture. (True/False)
+Answer: True
+Explanation: We define the design in architecture.
+
+NAT: Having 2 set of all buses (Address, Data, Control) can enable CPU to access instructions and data from single memory chip simultaneously. (True/False)
+Answer: False
+Explanation: Having 2 set of buses won't be beneficial since we are trying to access the same single resource, the memory can read/write using one set of bus at time only.
+
+MCQ: Consider following line of Register transfer language segment
+ops 	R1 <- M[1000]
+		R2 <- #7
+loop	R2 <- R2 + R1
+		R1 <- R1 - 1
+		Branch to loop, until not zero
+So, when will the branch not be taken?
+A) When value in R1 is not zero
+B) When value in R1 is 1
+C) When value in R1 is zero
+D) When value in R1 is less than zero
+Answer: C
+Explanation: The branch condition would check the zero flag in the PSW, if it gets set then the branch would not be taken and that would only happen when the value is R1 is zero.
+
+MCQ: if an interrupt occurs during instruction exection then what value will be pushed onto the stack?
+A) Address of current instruction
+B) Address of previous instruction
+C) Address stored in Program counter
+D) Address of the next instruction
+Answer: C
+Explanation: While handling an interrupt, we will first complete the current instruction and then push the PC value onto the stack.
+

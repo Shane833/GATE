@@ -93,6 +93,7 @@ class QuizApp(QtWidgets.QWidget):
         for w in self.option_widgets:
             w.setVisible(enable)
 
+    # UPDATED: The load_quiz function is modified to handle multiline questions.
     def load_quiz(self):
         self.questions.clear()
         self.user_answers.clear()
@@ -107,16 +108,40 @@ class QuizApp(QtWidgets.QWidget):
             return
         try:
             self.file_name_label.setText(os.path.basename(file_path))
-            with open(file_path, "r") as file:
+            with open(file_path, "r", encoding="utf-8") as file:
                 blocks = file.read().strip().split("\n\n")
             
             quiz_dir = os.path.dirname(file_path)
 
             for block in blocks:
                 lines = block.strip().split("\n")
-                qtype = lines[0].split(":")[0].strip()
-                q_text_raw = lines[0].split(":",1)[1].strip()
-
+                if not lines:
+                    continue
+                
+                # --- Find where the question text ends ---
+                first_line = lines[0]
+                qtype = first_line.split(":")[0].strip()
+                
+                question_text_lines = [first_line.split(":", 1)[1].strip()]
+                
+                # Find the starting index of options or answer
+                content_start_index = 1
+                for i, line in enumerate(lines[1:], 1):
+                    stripped_line = line.strip()
+                    # Options/Answer act as delimiters for the question text
+                    is_option = qtype in ["MCQ", "MSQ"] and stripped_line.startswith(('A)', 'B)', 'C)', 'D)'))
+                    is_answer = stripped_line.startswith('Answer:')
+                    
+                    if is_option or is_answer:
+                        content_start_index = i
+                        break
+                    question_text_lines.append(line)
+                else: # No break occurred, meaning no options/answer found after question
+                    content_start_index = len(lines)
+                
+                q_text_raw = "\n".join(question_text_lines).strip()
+                
+                # --- Parse Question Image ---
                 image_path = None
                 q_text = q_text_raw
                 image_match = re.search(r'\[image:\s*(.*?)\s*\]', q_text_raw)
@@ -125,17 +150,22 @@ class QuizApp(QtWidgets.QWidget):
                     image_path = os.path.join(quiz_dir, image_filename)
                     q_text = q_text_raw.replace(image_match.group(0), "").strip()
 
+                # --- Parse Options, Answer, and Explanation ---
+                options = []
+                answer = ""
+                explanation_index = -1
+
                 if qtype in ["MCQ", "MSQ"]:
-                    options = [line[3:].strip() for line in lines[1:5]]
-                    answer = lines[5].split(":")[-1].strip()
-                    explanation_index = 6
+                    options = [line[3:].strip() for line in lines[content_start_index : content_start_index + 4]]
+                    answer = lines[content_start_index + 4].split(":")[-1].strip()
+                    explanation_index = content_start_index + 5
                 elif qtype == "NAT":
-                    options = []
-                    answer = lines[1].split(":")[-1].strip()
-                    explanation_index = 2
+                    answer = lines[content_start_index].split(":")[-1].strip()
+                    explanation_index = content_start_index + 1
                 else:
                     continue
-
+                
+                # --- Parse Explanation and Explanation Image ---
                 raw_explanation = "\n".join(lines[explanation_index:]).replace("Explanation:", "").strip() if len(lines) > explanation_index else "No explanation provided."
                 explanation_image_path = None
                 explanation_text = raw_explanation
@@ -158,6 +188,7 @@ class QuizApp(QtWidgets.QWidget):
                 self.show_question()
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Error", f"Failed to load quiz: {e}")
+
 
     def show_question(self):
         if not self.questions:
@@ -284,7 +315,6 @@ class QuizApp(QtWidgets.QWidget):
                 explanation_html = f"<span style='color:blue;'>Explanation: {q.explanation}</span>"
                 if q.explanation_image_path and os.path.exists(q.explanation_image_path):
                     image_url = QtCore.QUrl.fromLocalFile(q.explanation_image_path).toString()
-                    # UPDATED: Changed max-width to 800px and added max-height at 600px
                     explanation_html += f'<br><img src="{image_url}" style="max-width:800px; max-height:600px; width:auto; height:auto;">'
                 
                 self.explanation_area.append(explanation_html)

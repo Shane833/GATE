@@ -56,23 +56,47 @@ No. of bits in address = log2(2^23) = 23
 
 NAT: Memory capacity 16GB for word addressable memory (1 word = 8 bytes), how many bits in address ?
 Answer: 31
-Explanation: 
+Explanation: Total Capacity = No. of cells * capacity of each cell
+So, No. of cells = Total Capacity / capacity of each cell
+No. of cells = 2^34 / 2^3
+No. of cells = 2^31
+Bits in address = log2(No. of cells) = log2(2^31) => 31
 
-Given word addressable memory with word size 64 bits, address is 18 bits long, then memory size ? 2MB
+NAT: Given word addressable memory with word size 64 bits, address is 18 bits long, then memory size is _____ MB ?
+Answer: 2
+Explanation: 64bits = 8Bytes
+Total Memory Cells = 2^18
+Total Memory capcity = 2^18 * 2^3 = 2^21 => 2MB
 
-Which memory addressing results in least wastage of space BA or WA ? Byte Addressable
+NAT: Which memory addressing results in least wastage of space Byte Addressable(1) or Word Addressable (2) ?
+Answer: 1
+Explanation: If we store say any data less than the word in Word Addressable memory, it will still occupy a while cell, i.e. a word worth of space hence wasting space.
 
-how to find address of nth instruction ? Base Address + (n - 1) * size of each instruction
+MCQ: How to find address of nth instruction ? 
+A) Current Address + (n - 1) * size of each instruction
+B) Next Address + n * size of each instruction
+C) Base Address + (n - 1) * size of each instruction
+D) Base Address + n * size of each instruction
+Answer: C
 
-How to find the PC value for nth instuction ? Base Address + n * size of each instruction (since we are basically looking one ahead)
+MCQ: How to find the Program Counter value for nth instuction ? 
+A) Current Address + (n - 1) * size of each instruction
+B) Next Address + n * size of each instruction
+C) Base Address + (n - 1) * size of each instruction
+D) Base Address + n * size of each instruction
+Answer: D
+Explanation: Since PC contains the address of the next instruction. So if we get the current instruction address using (BA + (n-1) * Instn Size) then we can get the next instn using (BA + (n) * Instn Size)
 
-Systems based on byte ordering ? Little-Endian (MSB at lowest position), Big-Endian (MSB at highest position)
-
-Max and min address length for a 32-bit architecture CPU ? (2^32 - 1)(all 32 1s)(max) 0(all 32 0s)(min)
-
-Read and write signal sent from ?
+MSQ: Systems based on byte ordering ?
+A) Little Endian
+B) Big Endian
+C) Large Endian
+D) Small Endian
+Answer: A,B
+Explanation: Little-Endian (MSB at lowest position), Big-Endian (MSB at highest position)
+Q Max and min address length for a 32-bit architecture CPU ? (2^32 - 1)(all 32 1s)(max) 0(all 32 0s)(min)
+Q Read and write signal sent from ?
 (Arrange the statements to correctly access memory read or write)
-
-what are these signals ? Control signals
+Qwhat are these signals ? Control signals
 
 
