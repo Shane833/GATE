@@ -95,6 +95,7 @@ public class QuizActivity extends AppCompatActivity {
 Original Code
 */
 
+/*
 package com.example.quizapp;
 
 import android.content.Intent;
@@ -190,5 +191,101 @@ public class QuizActivity extends AppCompatActivity {
         intent.putExtra("userResponses", userResponsesForWrong);
         startActivity(intent);
         finish(); // Finish this activity so the user can't go back to the quiz
+    }
+}
+ */
+
+// Update 4
+package com.example.quizapp;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+
+public class QuizActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private QuizAdapter adapter;
+    private Button btnSubmit;
+    private TextView txtQuizName, txtQuestionCount;
+    private List<Question> questions;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_quiz);
+
+        recyclerView = findViewById(R.id.recyclerView);
+        btnSubmit = findViewById(R.id.btnSubmit);
+        txtQuizName = findViewById(R.id.txtQuizName);
+        txtQuestionCount = findViewById(R.id.txtQuestionCount);
+
+        String quizName = getIntent().getStringExtra("quizName");
+        questions = getIntent().getParcelableArrayListExtra("questions");
+
+        txtQuizName.setText(quizName);
+        txtQuestionCount.setText("Q1 / " + questions.size());
+
+        adapter = new QuizAdapter(questions);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                int firstVisible = layoutManager.findFirstVisibleItemPosition() + 1;
+                txtQuestionCount.setText("Q" + firstVisible + " / " + questions.size());
+            }
+        });
+
+        btnSubmit.setOnClickListener(v -> evaluateQuiz(adapter.getUserAnswers()));
+    }
+
+    private void evaluateQuiz(Map<Integer, Object> userAnswers) {
+        int score = 0;
+        ArrayList<Question> wrongQuestions = new ArrayList<>();
+        ArrayList<String> userResponsesForWrong = new ArrayList<>();
+
+        for (int i = 0; i < questions.size(); i++) {
+            Question q = questions.get(i);
+            Object userAns = userAnswers.getOrDefault(i, "");
+
+            boolean correct = false;
+            if (q.getType().equalsIgnoreCase("MCQ") || q.getType().equalsIgnoreCase("NAT")) {
+                correct = userAns.toString().equalsIgnoreCase(q.getAnswer());
+            } else if (q.getType().equalsIgnoreCase("MSQ")) {
+                if (userAns instanceof ArrayList) {
+                    ArrayList<String> selected = (ArrayList<String>) userAns;
+                    ArrayList<String> correctAnswers = new ArrayList<>(List.of(q.getAnswer().split(",")));
+                    Collections.sort(selected);
+                    Collections.sort(correctAnswers);
+                    correct = selected.equals(correctAnswers);
+                }
+            }
+
+            if (correct) {
+                score++;
+            } else {
+                wrongQuestions.add(q);
+                userResponsesForWrong.add(userAns.toString());
+            }
+        }
+
+        Intent intent = new Intent(this, ResultsActivity.class);
+        intent.putExtra("score", score);
+        intent.putExtra("total", questions.size());
+        intent.putParcelableArrayListExtra("wrongQuestions", wrongQuestions);
+        intent.putStringArrayListExtra("userResponses", userResponsesForWrong);
+        startActivity(intent);
+        finish();
     }
 }

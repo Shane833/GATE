@@ -274,6 +274,8 @@ public class MainActivity extends AppCompatActivity {
     }
 }
  */
+
+/*
 package com.example.quizapp;
 
 import android.app.AlertDialog;
@@ -427,6 +429,252 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        builder.setNegativeButton("Cancel", null);
+        builder.show();
+    }
+}
+ */
+
+// Update 4
+package com.example.quizapp;
+
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.NumberPicker;
+import android.widget.Toast;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.documentfile.provider.DocumentFile;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class MainActivity extends AppCompatActivity {
+
+    private ArrayList<Question> questionList = new ArrayList<>();
+    private Button btnLoadQuiz;
+
+    private final ActivityResultLauncher<Uri> directoryPicker =
+            registerForActivityResult(new ActivityResultContracts.OpenDocumentTree(), uri -> {
+                if (uri != null) {
+                    getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    loadQuizFromDirectory(uri);
+                }
+            });
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        btnLoadQuiz = findViewById(R.id.btnLoadQuiz);
+        btnLoadQuiz.setOnClickListener(v -> {
+            Toast.makeText(this, "Please select the FOLDER containing your quiz.txt and images.", Toast.LENGTH_LONG).show();
+            directoryPicker.launch(null);
+        });
+    }
+
+    private void loadQuizFromDirectory(Uri dirUri) {
+        DocumentFile dir = DocumentFile.fromTreeUri(this, dirUri);
+        if (dir == null || !dir.isDirectory()) {
+            Toast.makeText(this, "Failed to open directory.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        DocumentFile quizFile = null;
+        for (DocumentFile file : dir.listFiles()) {
+            if (file.getName() != null && file.getName().endsWith(".txt")) {
+                quizFile = file;
+                break;
+            }
+        }
+
+        if (quizFile == null) {
+            Toast.makeText(this, "No .txt quiz file found in the selected directory.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        try (InputStream is = getContentResolver().openInputStream(quizFile.getUri());
+             BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
+            StringBuilder content = new StringBuilder();
+            String line;
+            while ((line = br.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+            parseQuiz(content.toString(), quizFile.getName(), dir);
+        } catch (Exception e) {
+            Toast.makeText(this, "Error loading quiz: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /*
+    private void parseQuiz(String content, String quizName, DocumentFile dir) {
+        questionList.clear();
+        String[] blocks = content.trim().split("\\n\\n");
+        Pattern imagePattern = Pattern.compile("\\[image:\\s*(.*?)\\]");
+
+        HashMap<String, Uri> fileUriMap = new HashMap<>();
+        for (DocumentFile file : dir.listFiles()) {
+            if (file.getName() != null) {
+                fileUriMap.put(file.getName(), file.getUri());
+            }
+        }
+
+        for (String block : blocks) {
+            String[] lines = block.trim().split("\\n");
+            if (lines.length < 2) continue;
+
+            String typeLine = lines[0];
+            String qType = typeLine.substring(0, typeLine.indexOf(":")).trim();
+            String qTextRaw = typeLine.substring(typeLine.indexOf(":") + 1).trim();
+            Matcher qMatcher = imagePattern.matcher(qTextRaw);
+            String qText = qMatcher.replaceAll("").trim();
+            String qImageUri = qMatcher.find() ? fileUriMap.get(qMatcher.group(1).trim()).toString() : null;
+
+            ArrayList<String> options = new ArrayList<>();
+            String answer = "";
+            String rawExplanation = "";
+
+            if (qType.equalsIgnoreCase("MCQ") || qType.equalsIgnoreCase("MSQ")) {
+                for (int i = 1; i <= 4; i++) options.add(lines[i].substring(3).trim());
+                answer = lines[5].split(":")[1].trim();
+                for (int i = 6; i < lines.length; i++) rawExplanation += lines[i] + "\n";
+            } else if (qType.equalsIgnoreCase("NAT")) {
+                answer = lines[1].split(":")[1].trim();
+                for (int i = 2; i < lines.length; i++) rawExplanation += lines[i] + "\n";
+            }
+
+            rawExplanation = rawExplanation.replace("Explanation:", "").trim();
+            Matcher eMatcher = imagePattern.matcher(rawExplanation);
+            String explanationText = eMatcher.replaceAll("").trim();
+            String eImageUri = eMatcher.find() ? fileUriMap.get(eMatcher.group(1).trim()).toString() : null;
+
+            questionList.add(new Question(qText, options, answer, explanationText, qType, qImageUri, eImageUri));
+        }
+
+        if (questionList.isEmpty()) {
+            Toast.makeText(this, "No questions found!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Collections.shuffle(questionList);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Select Number of Questions (Total: " + questionList.size() + ")");
+        final NumberPicker picker = new NumberPicker(this);
+        picker.setMinValue(1);
+        picker.setMaxValue(questionList.size());
+        picker.setValue(questionList.size());
+        builder.setView(picker);
+
+        builder.setPositiveButton("OK", (dialog, which) -> {
+            int numQuestions = picker.getValue();
+            ArrayList<Question> selectedQuestions = new ArrayList<>(questionList.subList(0, numQuestions));
+            Intent intent = new Intent(MainActivity.this, QuizActivity.class);
+            intent.putExtra("quizName", quizName.replace(".txt", "") + " (" + numQuestions + " Questions)");
+            intent.putParcelableArrayListExtra("questions", selectedQuestions);
+            startActivity(intent);
+        });
+        builder.setNegativeButton("Cancel", null);
+        builder.show();
+    }
+
+     */
+
+    private void parseQuiz(String content, String quizName, DocumentFile dir) {
+        questionList.clear();
+        String[] blocks = content.trim().split("\\n\\n");
+        Pattern imagePattern = Pattern.compile("\\[image:\\s*(.*?)\\]");
+
+        HashMap<String, Uri> fileUriMap = new HashMap<>();
+        for (DocumentFile file : dir.listFiles()) {
+            if (file.getName() != null) {
+                fileUriMap.put(file.getName(), file.getUri());
+            }
+        }
+
+        for (String block : blocks) {
+            String[] lines = block.trim().split("\\n");
+            if (lines.length < 2) continue;
+
+            String typeLine = lines[0];
+            String qType = typeLine.substring(0, typeLine.indexOf(":")).trim();
+            String qTextRaw = typeLine.substring(typeLine.indexOf(":") + 1).trim();
+
+            // --- CORRECTED LOGIC ---
+            Matcher qMatcher = imagePattern.matcher(qTextRaw);
+            String qImageUri = null;
+            if (qMatcher.find()) {
+                // Find the filename first...
+                String filename = qMatcher.group(1).trim();
+                if (fileUriMap.containsKey(filename)) {
+                    qImageUri = fileUriMap.get(filename).toString();
+                }
+            }
+            // ...then remove the tag from the text.
+            String qText = qMatcher.replaceAll("").trim();
+
+
+            ArrayList<String> options = new ArrayList<>();
+            String answer = "";
+            String rawExplanation = "";
+
+            if (qType.equalsIgnoreCase("MCQ") || qType.equalsIgnoreCase("MSQ")) {
+                for (int i = 1; i <= 4; i++) options.add(lines[i].substring(3).trim());
+                answer = lines[5].split(":")[1].trim();
+                for (int i = 6; i < lines.length; i++) rawExplanation += lines[i] + "\n";
+            } else if (qType.equalsIgnoreCase("NAT")) {
+                answer = lines[1].split(":")[1].trim();
+                for (int i = 2; i < lines.length; i++) rawExplanation += lines[i] + "\n";
+            }
+
+            rawExplanation = rawExplanation.replace("Explanation:", "").trim();
+
+            // --- CORRECTED LOGIC for Explanation ---
+            Matcher eMatcher = imagePattern.matcher(rawExplanation);
+            String eImageUri = null;
+            if (eMatcher.find()) {
+                String filename = eMatcher.group(1).trim();
+                if (fileUriMap.containsKey(filename)) {
+                    eImageUri = fileUriMap.get(filename).toString();
+                }
+            }
+            String explanationText = eMatcher.replaceAll("").trim();
+
+            questionList.add(new Question(qText, options, answer, explanationText, qType, qImageUri, eImageUri));
+        }
+
+        // ...The rest of the method (NumberPicker dialog) remains the same...
+        if (questionList.isEmpty()) {
+            Toast.makeText(this, "No questions found!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Collections.shuffle(questionList);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Select Number of Questions (Total: " + questionList.size() + ")");
+        final NumberPicker picker = new NumberPicker(this);
+        picker.setMinValue(1);
+        picker.setMaxValue(questionList.size());
+        picker.setValue(questionList.size());
+        builder.setView(picker);
+
+        builder.setPositiveButton("OK", (dialog, which) -> {
+            int numQuestions = picker.getValue();
+            ArrayList<Question> selectedQuestions = new ArrayList<>(questionList.subList(0, numQuestions));
+            Intent intent = new Intent(MainActivity.this, QuizActivity.class);
+            intent.putExtra("quizName", quizName.replace(".txt", "") + " (" + numQuestions + " Questions)");
+            intent.putParcelableArrayListExtra("questions", selectedQuestions);
+            startActivity(intent);
+        });
         builder.setNegativeButton("Cancel", null);
         builder.show();
     }

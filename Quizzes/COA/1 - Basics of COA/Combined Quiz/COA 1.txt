@@ -1,0 +1,7 @@
+MCQ: [image: 1.png]
+A) A
+B) B
+C) C
+D) D
+Answer: B
+Explanation: [image: exp1.png]
