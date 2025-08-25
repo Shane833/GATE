@@ -36,7 +36,7 @@ D) When value in R1 is less than zero
 Answer: C
 Explanation: The branch condition would check the zero flag in the PSW, if it gets set then the branch would not be taken and that would only happen when the value is R1 is zero.
 
-MCQ: if an interrupt occurs during instruction exection then what value will be pushed onto the stack?
+MCQ: if an interrupt occurs during instruction execution then what value will be pushed onto the stack?
 A) Address of current instruction
 B) Address of previous instruction
 C) Address stored in Program counter
