@@ -1,0 +1,13 @@
+NAT: The determinant of the given matrix is
+[ 5 8 3 ]
+[ 0 0 0 ]
+[ 7 2 9 ]
+Answer: 0
+Explanation: 
+
+NAT: What is the determinant of the given matrix
+[ 1 8 1 ]
+[ 6 2 6 ]
+[ 4 5 4 ]
+Answer: 0
+Explanation: 
