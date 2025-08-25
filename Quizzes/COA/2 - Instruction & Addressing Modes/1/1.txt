@@ -1,0 +1,31 @@
+NAT: Given a CPU supports 8 distinct instruction, the opcode is ______ bit long?
+Answer: 3
+Explanation: If the no. of distinct operations supported by CPU = n
+then opcode length = ceil(log2[n]) bits
+So, log2(8) = 3
+
+MCQ: If the no. of distince operations/instructions supported by CPU is n, then the opcode is ______ bit long?
+
+MSQ: [image: 1.png]
+A) A
+B) B
+C) C
+D) D
+Answer: D
+
+MSQ: What is/are defined in Instruction Set Architecture?
+A) Total no. of Registers
+B) Total no. of Cache Levels
+C) Total no. of distinct instruction 
+D) CPU Architecture
+Answer: A,C
+
+MCQ: A Digital computer supports 2-address inst each 14-bits long. If address length is 5 bits then maximum and minimum no. of instructions supported by the system are ?
+A)
+B)
+C)
+D)
+Answer: 
+Explanation:
+
+
