@@ -4,9 +4,15 @@ Explanation: If the no. of distinct operations supported by CPU = n
 then opcode length = ceil(log2[n]) bits
 So, log2(8) = 3
 
-MCQ: If the no. of distince operations/instructions supported by CPU is n, then the opcode is ______ bit long?
+MCQ: If the no. of distinct operations/instructions supported by CPU is n, then the opcode is ______ bit long?
+A) log2(n)
+B) floor(log2(n))
+C) ceil(log2(n))
+D) 2^n
+Answer: C
+Explanation: We take the ceil as the addresses have to be in powers of 2
 
-MSQ: [image: 1.png]
+MSQ: [image: 1.jpeg]
 A) A
 B) B
 C) C
@@ -21,11 +27,47 @@ D) CPU Architecture
 Answer: A,C
 
 MCQ: A Digital computer supports 2-address inst each 14-bits long. If address length is 5 bits then maximum and minimum no. of instructions supported by the system are ?
-A)
-B)
-C)
-D)
-Answer: 
-Explanation:
+A) 0,16
+B) 1,16
+C) 0,4
+D) 1,4
+Answer: B
+Explanation: [image: exp2.jpeg]
+
+NAT: A Digital computer supports 64 2-address instn. If address length is 9-bits then length of inst is ______ bits.
+Answer: 24
+Explanation: [image: exp3.jpeg]
+
+NAT: A Digital computer supports 32 2-addr instn. Each addr is 8-bits long and is stored in a byte aligned fashion. If there are total 300 instn then the total memory required to store the instn is ______ B.
+Answer: 900
+Explanation: [image: exp4.jpeg]
+
+NAT: [image: 2.jpeg]
+Answer: 24
+Explanation: [image: exp5.jpg]
+
+MCQ: [image: 3.jpg]
+A) 15, 1 and 512
+B) 5, 0 and 511
+C) 10, 1 and 9
+D) 9, 0 and 511
+Answer: D
+Explanation: [image: exp6.jpg]
+
+MCQ: A Digital computer supports 3-addr instructions each of 40 bits. The main memory is 256B, the find the max and min no. of instn supported by system?
+A) 0, 16
+B) 16, 1
+C) 1, 2^16
+D) 2^16, 1 
+Answer: D
+Explanation: [image: exp7.jpg]
+
+NAT: State True/False [image: 4.jpeg]
+Answer: True
+Explanation: [image: exp8.jpeg]
+
+NAT: State True/False [image: 5.jpeg]
+Answer: False
+Explanation: [image: exp9.jpg]
 
 
