@@ -69,5 +69,3 @@ Explanation: [image: exp8.jpeg]
 NAT: State True/False [image: 5.jpeg]
 Answer: False
 Explanation: [image: exp9.jpg]
-
-

@@ -3,11 +3,86 @@ NAT: The determinant of the given matrix is
 [ 0 0 0 ]
 [ 7 2 9 ]
 Answer: 0
-Explanation: 
+Explanation: [image: exp1.jpeg]
 
 NAT: What is the determinant of the given matrix
 [ 1 8 1 ]
 [ 6 2 6 ]
 [ 4 5 4 ]
 Answer: 0
-Explanation: 
+Explanation: [image: exp2.jpeg]
+
+MCQ: |ABC| = ?
+A) A.B.C
+B) (AB).(C)
+C) |A|.|B|.|C|
+D) |A+B+C|
+Answer: C
+Explanation: [image: exp3.jpeg]
+
+MCQ: |A^m| = ?
+A) m.|A|
+B) m.A
+C) m^|A|
+D) |A|^m
+Answer: D
+Explanation: [image: exp4.jpeg]
+
+MCQ: |Transpose(A)| = ?
+A) Inverse(A)
+B) det(A)
+C) Adjoint(A)
+D) |Inverse(A)|
+Answer: B
+Explanation: [image: exp5.jpeg]
+
+NAT: State True/False
+|A+B+C| = |A| + |B| + |C|
+Answer: False
+Explanation: |A+B+C| <= |A| + |B| + |C|
+[image: exp6.jpeg]
+
+MCQ: |A|^-1 = ?
+A) |A|
+B) 1/|A|
+C) A^-1
+D) None
+Answer: B
+Explanation: [image: exp7.jpeg]
+
+MSQ: |Inverse(A)| = ?
+A) |A|^-1
+B) Inverse(A)
+C) 1/|A|
+D) |A|
+Answer: A,C
+Explanation: [image: exp8.jpeg]
+
+NAT: State True/False
+Formula to calculate the area of a triangle is 
+|1 x1 y1|
+|1 x2 y2|
+|1 x3 y3|
+Answer: False
+Explanation: [image: exp9.jpeg]
+
+MSQ: What is the correct condition for collinearity for points (x1, y1) (x2, y2) (x3, y3) ?
+A) Area = 1
+B) Area = 0
+C) Lie on the same line
+D) All of the above
+Answer: B,C
+Explanation: [image: exp10.jpeg]
+
+NAT: State True/False
+|a b c| = f(x) 
+|d e f|
+|g h i|
+|a' b  c|   |a  b' c |   |a  b  c'|
+|d' e  f | +|d  e' f | + |d  e  f'| = f'(x)
+|g' h  i |  |g  h' i |   |g  h  i'|
+Answer: True
+Explanation: [image: exp11.jpeg]
+
+
+

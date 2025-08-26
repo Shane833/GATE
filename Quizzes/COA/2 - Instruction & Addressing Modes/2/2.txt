@@ -1,0 +1,7 @@
+NAT: Solve [image: 1.jpeg]
+Answer: 4
+Explanation: [image: exp1.jpeg]
+
+NAT: Solve [image: 2.jpeg]
+Answer: 2560
+Explanation: [image: exp2.jpg]
