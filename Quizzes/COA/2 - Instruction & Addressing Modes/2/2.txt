@@ -5,3 +5,91 @@ Explanation: [image: exp1.jpeg]
 NAT: Solve [image: 2.jpeg]
 Answer: 2560
 Explanation: [image: exp2.jpg]
+
+MCQ: Solve [image: 3.jpeg]
+A) 2^12
+B) 2^10
+C) 2^13
+D) 2^8
+Answer: C
+Explanation: [image: exp3.jpeg] 
+
+MCQ: Solve [image: 4.jpeg]
+A) 14 * 2^12
+B) 42 * 2^12
+C) 2^12
+D) 17 * 2^12
+Answer: B
+Explanation: [image: exp4.jpeg]
+
+NAT: Solve directly 'b' part [image: 5.jpg]
+Answer: 56
+Explanation: [image: exp5.jpeg]
+
+NAT: Solve [image: 6.jpeg]
+Answer: 12
+Explanation: [image: exp6.jpeg]
+
+NAT: Solve [image: 7.jpeg]
+Answer: 48
+Explanation: [image: exp7.jpg]
+
+NAT: Solve [image: 8.jpeg]
+Answer: 14
+Explanation: [image: exp8.jpg]
+
+NAT: Solve [image: 9.jpg]
+Answer: 32
+Explanation: [image: exp9.jpg]
+
+MCQ: If instruction length is variable then opcode length is ?
+A) Fixed
+B) 1/2 of instruction length
+C) 2 * instruction length
+C) Variable
+D) Can't Say
+Answer: A
+
+MCQ: If instruction length is fixed then opcode length is ?
+A) Fixed
+B) 1/2 of instruction length
+C) 2 * instruction length
+C) Variable
+D) Can't Say
+Answer: C
+
+MCQ: Solve [image: 10.jpg]
+A) 18, 30
+B) 17, 40
+C) 15, 20
+D) 19, 27
+Answer: B
+Explanation: [image: exp10.jpg]
+
+NAT: Solve [image: 11.jpg]
+Answer: 3
+Explanation: [image: exp11.jpg]
+
+NAT: Solve [image: 12.jpeg]
+Answer: 5
+Explanation: [image: exp12.jpg]
+
+MCQ: What best explains Register Split ?
+A) Less no. of registers holding all instruction operands in registers
+B) Higher no. of registers holding all instruction operands in memory
+C) Registers operands saved in different registers
+D) Insufficient no. of registers due to which some instruction operands are saved in memory
+Answer: D
+
+NAT: Solve [image: 13.jpg]
+Answer: 2
+Explanation: [image: exp13.jpeg]
+
+NAT: This time consider the architecture to be Register based then, [image: 13.jpg]
+Answer: 3
+Explanation: [image: exp14.jpg]
+
+
+
+
+

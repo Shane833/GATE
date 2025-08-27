@@ -200,6 +200,7 @@ class QuizApp(QtWidgets.QWidget):
         if q.image_path and os.path.exists(q.image_path):
             pixmap = QtGui.QPixmap(q.image_path)
             
+
             if pixmap.width() > 800 or pixmap.height() > 600:
                 pixmap = pixmap.scaled(800, 600, QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation)
             
@@ -315,7 +316,7 @@ class QuizApp(QtWidgets.QWidget):
                 explanation_html = f"<span style='color:blue;'>Explanation: {q.explanation}</span>"
                 if q.explanation_image_path and os.path.exists(q.explanation_image_path):
                     image_url = QtCore.QUrl.fromLocalFile(q.explanation_image_path).toString()
-                    explanation_html += f'<br><img src="{image_url}" style="max-width:800px; max-height:600px; width:auto; height:auto;">'
+                    explanation_html += f'<br><img src="{image_url}" style="width:400px; height:300px;">'
                 
                 self.explanation_area.append(explanation_html)
                 self.explanation_area.append("<br><br>")

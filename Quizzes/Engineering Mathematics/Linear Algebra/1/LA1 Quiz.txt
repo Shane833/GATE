@@ -84,5 +84,11 @@ NAT: State True/False
 Answer: True
 Explanation: [image: exp11.jpeg]
 
+NAT: Solve [image: 1.png]
+Answer: -10
+Explanation: 
+
+
+
 
 
