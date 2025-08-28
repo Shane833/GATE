@@ -80,6 +80,7 @@ B) Higher no. of registers holding all instruction operands in memory
 C) Registers operands saved in different registers
 D) Insufficient no. of registers due to which some instruction operands are saved in memory
 Answer: D
+Explanation: [image: exp15.jpeg]
 
 NAT: Solve [image: 13.jpg]
 Answer: 2
@@ -88,6 +89,15 @@ Explanation: [image: exp13.jpeg]
 NAT: This time consider the architecture to be Register based then, [image: 13.jpg]
 Answer: 3
 Explanation: [image: exp14.jpg]
+
+NAT: Consider Variable length instructions Type A, Type B, Type C, and there are 3 instructions of type A, 5 instructions of Type B and 14 instructions of Type C then opcode length is ________ bits.
+Answer: 5
+Explanation: 
+Total distinct instructions = 3 + 5 + 14 = 22
+Length of opcode = ceil[Log2(no. of distinct instructions)]
+Length of opcode = ceil[Log2(22)]
+Length of opcode = 5
+
 
 
 

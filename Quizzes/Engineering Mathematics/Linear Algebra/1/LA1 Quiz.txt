@@ -84,9 +84,29 @@ NAT: State True/False
 Answer: True
 Explanation: [image: exp11.jpeg]
 
-NAT: Solve [image: 1.png]
+NAT: Solve [image: 12.png]
 Answer: -10
-Explanation: 
+Explanation: [image: exp12.jpg]
+
+NAT: Solve [image: 13.png]
+Answer: 0
+Explanation: [image: exp13.jpeg]
+
+NAT: Solve [image: 15.png]
+Answer: 1
+Explanation: [image: exp15.jpeg]
+
+NAT: Solve [image: 16.png]
+Answer: 125
+Explanation: [image: exp16.jpeg]
+
+MCQ: Choose the correct option [image: 14.png]
+A) a
+B) b
+C) c
+D) d
+Answer: c
+Explanation: [image: exp14.jpg] 
 
 
 
