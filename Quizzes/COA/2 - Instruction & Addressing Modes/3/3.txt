@@ -1,0 +1,160 @@
+MCQ: What is the effective address for a computation type instruction?
+A) Address of Target Instruction
+B) Address of Instruction Operand
+C) Address of PC
+D) Address of SP
+Answer: B
+
+MCQ: What is the effective address for a branch type instruction?
+A) Address of Target Instruction
+B) Address of Instruction Operand
+C) Address of PC
+D) Address of SP
+Answer: A
+
+MCQ: What is the PC value when the branch is not taken?
+A) Current instruction address
+B) Next instruction address
+C) Target instruction address
+D) Last instruction address
+Answer: B
+
+MCQ: What is the PC value when the branch is taken?
+A) Current instruction address
+B) Next instruction address
+C) Target instruction address
+D) Last instruction address
+Answer: C
+Explanation: PC is explicitely set to Target instruction address
+
+MSQ: Identify the correct steps in an instruction cycle:
+A) Instruction fetch, Write back result
+B) Take branch, finish execution
+C) Execution, Operand Fetch
+D) Halt, Resume
+Answer: A,C
+Explanation: [image: instruction_cycle.jpeg]
+
+MCQ: What happens in Instruction fetch phase for computation type instruction?
+A) Identify Address of operand
+B) Fetch value at PC into IR and Increment PC
+C) Write Result from AC to given Address
+D) Identify the type of operation 
+Answer: B
+
+MCQ: What happens in Instruction fetch phase for branch type instruction?
+A) Identify Address of operand
+B) Fetch value at PC into IR and Increment PC
+C) Write Result from AC to given Address
+D) Identify the type of operation 
+Answer: B
+Explanation: [image: instruction_cycle_branch.jpg]
+
+MCQ: What happens in Instruction decode phase for computation type instruction?
+A) Identify Address of operand
+B) Fetch value at PC and Increment PC
+C) Write Result from AC to given Address
+D) Identify the type of operation 
+Answer: D
+Explanation: [image: Instruction_cycle_computation.jpg]
+
+MCQ: What happens in Instruction decode phase for branch type instruction?
+A) Identify Address of operand
+B) Fetch value at PC and Increment PC
+C) Write Result from AC to given Address
+D) Identify the type of operation 
+Answer: D
+Explanation: [image: instruction_cycle_branch.jpg]
+
+MCQ: What happens in Effective Address Calculation phase for computation type instruction?
+A) Identify Address of operand
+B) Fetch value at PC and Increment PC
+C) Write Result from AC to given Address
+D) Identify the type of operation 
+Answer: A
+Explanation: [image: Instruction_cycle_computation.jpg]
+
+MCQ: What happens in Effective Address Calculation phase for branch type instruction?
+A) Identify Address of operand
+B) Fetch value at PC and Increment PC
+C) Calculates the target address and stores it
+D) Identify the type of operation 
+Answer: A
+Explanation: [image: instruction_cycle_branch.jpg]
+
+MCQ: What happens in Operand Fetch phase for computation type instruction?
+A) Identify Address of operand
+B) Bring operand into ALU for operation
+C) Write Result from AC to given Address
+D) Identify the type of operation 
+Answer: B
+Explanation: [image: Instruction_cycle_computation.jpg]
+
+MCQ: What happens in Operand Fetch phase for branch type instruction?
+A) Identify Address of operand
+B) Bring operand into ALU for operation
+C) Write Result from AC to given Address
+D) None
+Answer: D
+Explanation: [image: instruction_cycle_branch.jpg] 
+
+MCQ: What happens in Execution phase for computation type instruction?
+A) Identify Address of operand
+B) Fetch value at PC and Increment PC
+C) Write Result from AC to given Address
+D) Perform operation and store result in AC 
+Answer: D
+Explanation: [image: Instruction_cycle_computation.jpg]
+
+MSQ: What happens in Execution phase for branch type instruction?
+A) Branch is takes
+B) check PSW for condition and updates PC if branch taken
+C) check PSW for condition and don't update PC if branch not taken
+D) Perform operation and store result in AC 
+Answer: B,C
+Explanation: [image: instruction_cycle_branch.jpg]
+
+MCQ: What happens in Write Back phase for computation type instruction?
+A) Identify Address of operand
+B) Bring operand into ALU for operation
+C) Write Result from AC to given Address
+D) Identify the type of operation 
+Answer: C
+Explanation: [image: Instruction_cycle_computation.jpg]
+
+MCQ: What happens in Write Back phase for branch type instruction?
+A) Identify Address of operand
+B) Bring operand into ALU for operation
+C) Write Result from AC to given Address
+D) None
+Answer: D
+Explanation: [image: instruction_cycle_branch.jpg]
+
+MSQ: Which phases is/are parts of Fetch Cycle?
+A) Instruction Fetch
+B) Instruction Decode
+C) Effective Address Calculation
+D) Operand Fetch
+Answer: A
+Explanation: [image: fetch_and_exection_cycle.jpg]
+
+MSQ: Which phases is/are parts of Execution Cycle?
+A) Instruction Fetch, Write Back 
+B) Instruction Decode, Execution
+C) Effective Address Calculation, Write Back
+D) Operand Fetch
+Answer: B,C,D
+Explanation: [image: fetch_and_exection_cycle.jpg]
+
+MSQ: What does Addressing Mode Specify for an instruction ?
+A) from where to obtain the operand
+B) how to obtain the operand
+C) where to store the operand
+D) None
+Answer: A,B
+Explanation: [image: Addresing_Mode.jpeg]
+
+NAT: If a digital computer support 7 addressing modes then mode bit in instruction format is ______ bit.
+Answer: 3
+Explanation: [image: Addresing_format.jpeg]
+
