@@ -158,3 +158,11 @@ NAT: If a digital computer support 7 addressing modes then mode bit in instructi
 Answer: 3
 Explanation: [image: Addresing_format.jpeg]
 
+MCQ: Which of the following addressing modes lets you define Operand and operation in the opcode ?
+A) Auto INC/DEC
+B) PC-Relative 
+C) Implied Mode
+D) Indexed Mode
+Answer: C
+Explanation: 
+
