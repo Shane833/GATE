@@ -164,5 +164,115 @@ B) PC-Relative
 C) Implied Mode
 D) Indexed Mode
 Answer: C
-Explanation: 
+Explanation: [image: Implied, Immediate Direct or Absolute.jpg]
+
+MSQ: Which addressing mode(s) can be used for random access ?
+A) Auto INC/DEC
+B) PC-Relative 
+C) Scaled Addressing 
+D) Indexed Mode
+Answer: C,D
+Explanation: [image: Indexed or Index Register and Scaled Mode.jpg]
+
+NAT: How many memory accesses are required to obtain the operand from Immediate mode ?
+Answer: 0
+Explanation: [image: Implied, Immediate Direct or Absolute.jpg]
+
+NAT: How many memory accesses are required to obtain the operand from Direct mode ?
+Answer: 1
+Explanation: [image: Implied, Immediate Direct or Absolute.jpg]
+
+NAT: How many memory accesses are required to obtain the operand from Indirect mode ?
+Answer: 2
+Explanation: [image: Indirect and Register Direct.jpeg]
+
+NAT: How many memory accesses are required to obtain the operand from Register mode ?
+Answer: 0
+Explanation: [image: Indirect and Register Direct.jpeg]
+
+NAT: How many memory accesses are required to obtain the operand from Register Indirect mode ?
+Answer: 1
+Explanation: [image: Indirect and Register Direct.jpeg]
+
+MCQ: Why is Register Indirect Mode used sometimes ?
+A) To obtain operand quickly
+B) Used to shorted instn length
+C) To optimise memory access
+D) None
+Answer: B
+Explanation: [image: Indirect and Register Direct.jpeg]
+
+MCQ: Which adddressing mode can be used to represent constant values ?
+A) Register 
+B) Direct
+C) Indirect
+D) Immediate
+Answer: D
+Explanation: [image: Implied, Immediate Direct or Absolute.jpg]
+
+MCQ: Arrange the correct steps for a function call ?
+1. Update PC to first instruction of function
+2. Load return address from Stack using SP to PC
+4. Execute instruction in the function
+3. Push current PC value on Stack using SP
+A) 4,3,2,1
+B) 1,2,3,4
+C) 2,1,4,3
+D) 3,1,4,2
+Answer: D
+Explanation: [image: Function Call.jpeg]
+
+MCQ: Which of the following addressing mode is used for implementing pointers ?
+A) Direct
+B) Indirect
+C) Implied
+D) Indexed
+Answer: B
+Explanation: [image: Indirect and Register Direct.jpeg]
+
+MCQ: Which of the following addressing mode is used to perform same type of operation on a sequence of data?
+A) Auto INC/DEC
+B) Index 
+C) Scaled Addressing
+D) Indirect
+Answer: A
+Explanation: [image: Register Indirect, Auto Increment and Decrement.jpg]
+
+MCQ: In Auto INC/DEC mode, after performing the given operation the address stored in the register is incremented by ?
+A) Instruction Size
+B) A Byte
+C) Operand Size
+D) A Word
+Answer: C
+Explanation: [image: Register Indirect, Auto Increment and Decrement.jpg]
+
+MCQ: Auto INC/DEC is a variant of _________ mode
+A) Direct
+B) Indirect
+C) Indexed
+D) Register Indirect
+Answer: D
+Explanation: [image: Register Indirect, Auto Increment and Decrement.jpg]
+
+MCQ: What is the default updation method in Auto INC mode?
+A) pre increment
+B) post increment
+C) pre decrement
+D) post decrement
+Answer: B
+Explanation: [image: Register Indirect, Auto Increment and Decrement.jpg]
+
+MCQ: What is the default updation method in Auto DEC mode?
+A) pre increment
+B) post increment
+C) pre decrement
+D) post decrement
+Answer: C
+Explanation: [image: Register Indirect, Auto Increment and Decrement.jpg]
+
+NAT: No. of instruction(s) performed to obtain the operand in Indexed mode is/are _______.
+Answer: 2
+Explanation: [image: Indexed or Index Register and Scaled Mode.jpg]
+
+
 
