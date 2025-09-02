@@ -108,6 +108,13 @@ D) d
 Answer: c
 Explanation: [image: exp14.jpg] 
 
+MSQ: Determinant is only defined for which type of matrix/ces ?
+A) Singular
+B) Non-Singular
+C) Square
+D) Rectangle
+Answer: A and C
+
 
 
 
