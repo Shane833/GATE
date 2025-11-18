@@ -1,0 +1,86 @@
+MCQ:1. In a class of 20 students the average age is 16 years, when the teacher is included in the group the average becomes 18 years. Find the age of the teacher.
+A) 58
+B) 56
+C) 64
+D) 42
+Answer: A
+
+MCQ:2. A Team of 10 employees has the average age of 20 years. If the team leader is excluded from the group, the avg of the remaining 9 employees decrease by 3 months. What is the age of the team leader?
+A) 22 years and 3 months
+B) 18 years and 6 months
+C) 21 years and 6 months
+D) 20 years and 9 months
+Answer: A
+
+MCQ:2b. A Team of 10 employees has the average age of 20 years. If the team leader is excluded from the group, the avg of the remaining 9 employees decrease by 2 months. What is the age of the team leader?
+A) 22 years and 3 months
+B) 18 years and 6 months
+C) 21 years and 6 months
+D) 20 years and 9 months
+Answer: C
+
+MCQ:3. In a school with 15 teachers, monthly salary is 4500. When three teachers left the school, the average monthly salary decreased by 500. Find the averge monthly salary of the three teachers who left the school.
+A) 6500
+B) 6000
+C) 4800
+D) None
+Answer: A
+
+MCQ:4. [image: Screenshot (2336).png]
+A) a
+B) b
+C) c
+D) d
+Answer: B
+
+MCQ:5. [image: Screenshot (2337).png]
+A) a
+B) b
+C) c
+D) d
+Answer: C
+
+MCQ:6. [image: Screenshot (2339).png]
+A) a
+B) b
+C) c
+D) d
+Answer: C
+
+MCQ:7. The average monthly salary of 20 employees is 1500. If manager's salary is added the average becomes 1600. The manager's salary is ?
+A) 3500
+B) 3600
+C) 3800
+D) 3900
+Answer: B
+
+MCQ:8. Three years ago, the average age of a family of 5 members was 17 years. A baby having been born, the average of the family is the same today. What is the age of the baby?
+A) 6 months
+B) 9 months
+C) 1 years 
+D) 2 years
+Answer: D
+
+MCQ:9. Twelve years ago, the average of a husband and his wife was 20 years. The average age is same today after them having two children. What is the present age of the younger child if children differ in age by 2 years?
+A) 8
+B) 6
+C) 7
+D) 9
+Answer: C
+
+MCQ:10. The average of 5 consecutive integers starting with x is y. What is the average of 6 consecutive numbers starting with (x+2)?
+A) y + 3
+B) (2y + 9) / 2
+C) y + 2
+D) (2y + 5) / 2
+Answer: D
+
+MCQ:11. [image: Screenshot (2341).png]
+A) a
+B) b
+C) c
+D) d
+Answer: B
+
+NAT:12. [image: Screenshot (2342).png]
+Answer: 40

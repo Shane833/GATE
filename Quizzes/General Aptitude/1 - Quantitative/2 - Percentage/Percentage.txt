@@ -1,0 +1,65 @@
+MCQ:1. When the price of a mobile reduced by 20%, the number of mobile sold increased by 40%. The effect on the sale was?
+A) 12% increase
+B) 12% decrease
+C) 32% decrease
+D) 40% decrease
+Answer: A
+
+MCQ:2. [image: Screenshot (2343).png]
+A) a
+B) b
+C) c
+D) d
+Answer: B
+
+MCQ:3. 8% of the people eligible to vote are between 20 and 25 years of age. In an election 85% of those eligible to vote, who were between 20 and 25 actually voted. In that election, the number of person between 20 and 25, who actually voted was what percentage of those eligble to vote?
+A) 4.2%
+B) 6.4%
+C) 6.8%
+D) 8%
+Answer: C
+
+MCQ:4. If the petrol rate is increased by 40% then by how much percentage we should decrease the consumption in order to maintain same rate?
+A) 71.42%
+B) 40%
+C) 28.57%
+D) 60%
+Answer: C
+
+MCQ:5. If the length of a rectangle increases by 20%, then by how much percent would the breadth be decreased in order to have the same area?
+A) 20%
+B) 16.67%
+C) 83.33%
+D) 81.33%
+Answer: B
+
+NAT:6. Manoj saves 20% of his income. If his income is increased by 20% and expenditure decreases by 10%, then the percentage change in his savings is ______%.
+Answer: 140
+ 
+MCQ:7. If the side of a square is increased by 20% then what is the percentage change in the area?
+A) 69%
+B) 44%
+C) 26%
+D) 144%
+Answer: B
+
+MCQ:8. The population of a town doubled every 5 years from 2000 to 2015. What is the percentage increase in population in this period?
+A) 800%
+B) 400%
+C) 700%
+D) 600%
+Answer: C
+
+MCQ:9. If P is 60% taller than Q, by what percentage is Q shorter than P?
+A) 40%
+B) 37.5%
+C) 62.5%
+D) None
+Answer: B
+
+MCQ:10. A is twice of B and B is 200% more than C. By what percentage is A more than C?
+A) 200%
+B) 400%
+C) 500%
+D) 600%
+Answer: C
