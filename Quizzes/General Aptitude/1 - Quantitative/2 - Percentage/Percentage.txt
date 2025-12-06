@@ -63,3 +63,27 @@ B) 400%
 C) 500%
 D) 600%
 Answer: C
+
+MCQ:11. [image: Screenshot (2346).png]
+A) a
+B) b
+C) c
+D) d
+Answer: B
+
+MCQ:12. [image: Screenshot (2347).png]
+A) a
+B) b
+C) c
+D) d
+Answer: B
+
+NAT:13. [image: Screenshot (2348).png]
+Answer: 95
+
+MCQ:14. [image: Screenshot (2345).png]
+A) a
+B) b
+C) c
+D) d
+Answer: D
